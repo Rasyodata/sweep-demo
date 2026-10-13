@@ -12,13 +12,14 @@
   tr.innerHTML = build() + build();
 })();
 
-/* Live "players online" counter under the arcade panel — gentle random walk. */
+/* Live "players online / playing" counter — gentle random walk.
+   Drives the panel footer (#gpOnline) and the ticker tag (#gtickerCount). */
 (function () {
-  var el = document.getElementById('gpOnline');
-  if (!el) return;
+  var panel = document.getElementById('gpOnline'), tick = document.getElementById('gtickerCount');
+  if (!panel && !tick) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var n = 3200 + Math.floor(Math.random() * 900);
-  function render() { el.textContent = n.toLocaleString('en-US'); }
+  function render() { var s = n.toLocaleString('en-US'); if (panel) panel.textContent = s; if (tick) tick.textContent = s; }
   render();
   if (reduce) return;
   setInterval(function () {

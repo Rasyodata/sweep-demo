@@ -14,7 +14,8 @@
     'Upgrade': 'arc', 'Booster': 'rocket', 'Sport': 'pulse',
     'Fighter': 'pulse', 'Click': 'pulse', 'Sweepstake': 'ticket',
     'Scratch': 'scratch', 'Darts': 'darts', 'Slots': 'slots',
-    'Roulette': 'wheel', 'Blackjack': 'card'
+    'Roulette': 'wheel', 'Blackjack': 'card',
+    'Keno': 'keno', 'Limbo': 'limbo', 'Baccarat': 'card', 'Double': 'wheel'
   };
   var GOLD = '#f5b63d', GREEN = '#39d98a', RED = '#ff5470', VIO = '#7c5cff';
 
@@ -147,7 +148,24 @@
     }
   }
 
-  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots };
+  function keno(g, c, W, H, tm) {
+    var cols = 5, rows = 2, cw = (W - 18) / cols, ch = (H - 12) / rows, ox = 9, oy = 6;
+    for (var i = 0; i < cols * rows; i++) {
+      var x = ox + (i % cols) * cw, y = oy + ((i / cols) | 0) * ch;
+      var hit = Math.sin(tm * 0.0024 + g.seed + i * 1.3) > 0.5;
+      c.fillStyle = hit ? GOLD : 'rgba(255,255,255,.07)'; rr(c, x + 2, y + 2, cw - 4, ch - 4, 3); c.fill();
+      c.fillStyle = hit ? '#101218' : 'rgba(255,255,255,.3)'; c.font = 'bold 11px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.fillText(i + 1, x + cw / 2, y + ch / 2);
+    }
+  }
+  function limbo(g, c, W, H, tm) {
+    var p = (tm * 0.0009 + g.seed) % 1, mult = 1 + p * p * 8;
+    c.strokeStyle = 'rgba(255,255,255,.12)'; c.lineWidth = 1; c.beginPath(); c.moveTo(10, H - 10); c.lineTo(W - 10, H - 10); c.stroke();
+    c.fillStyle = mult > 4 ? GREEN : GOLD; c.font = 'bold 26px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.fillText(mult.toFixed(2) + 'x', W / 2, H / 2 - 2);
+  }
+
+  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo };
 
   function render(g, tm) {
     var c = g.ctx, W = g.W, H = g.H;
