@@ -35,11 +35,21 @@
   var hot = {"Crash":1,"Cases":1,"Plincoin":1,"Sweepstake":1};
   var track = document.getElementById("gtrack");
   var html = "";
+  var navItems = [
+    {t:'🎮 Arcade', h:'game.html'},
+    {t:'📺 Watch & Earn', h:'#whatis'},
+    {t:'⛏️ Mining', h:'game.html'},
+    {t:'🎰 Casino', h:'game.html'},
+    {t:'⚽ Sports', h:'game.html'},
+    {t:'📈 Markets', h:'game.html'},
+    {t:'🎁 Airdrop', h:'airdrop.html'},
+    {t:'🏆 Leaderboard', h:'airdrop.html'}
+  ];
+  var hotNav = {'🎮 Arcade':1,'📺 Watch & Earn':1,'⛏️ Mining':1};
   for(var r=0;r<2;r++){
     html += '<a class="pill perp-pill" target="_blank" rel="noopener">⚡ Sweep Perp</a>';
-    for(var i=0;i<games.length;i++){
-      var g = games[i];
-      html += '<a class="pill'+(hot[g]?' hot':'')+'" href="#">'+g+'</a>';
+    for(var i=0;i<navItems.length;i++){
+      html += '<a class="pill navpill'+(hotNav[navItems[i].t]?' hot':'')+'" href="'+navItems[i].h+'">'+navItems[i].t+'</a>';
     }
   }
   track.innerHTML = html;
@@ -375,7 +385,7 @@
 
   // ---- Game nav → sign-in prompt ----
   document.querySelectorAll('.gamenav .pill:not(.perp-pill)').forEach(function(p){
-    p.addEventListener('click', function(e){ e.preventDefault(); location.href = 'game.html?g=' + encodeURIComponent(p.textContent.trim().toLowerCase()); });
+    p.addEventListener('click', function(e){ var h = p.getAttribute('href'); if(!h || h === '#'){ e.preventDefault(); location.href = 'game.html'; } });
   });
 
   // ---- Mobile menu ----

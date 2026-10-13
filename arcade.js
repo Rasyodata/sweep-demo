@@ -1,12 +1,20 @@
-/* Scrolling games-name ticker — fills #gtickerTrack (duplicated for a seamless loop). */
+/* Scrolling LIVE activity ticker — fills #gtickerTrack (duplicated for a seamless loop). */
 (function () {
   var tr = document.getElementById('gtickerTrack');
   if (!tr) return;
-  var names = ['Market', 'Sport', 'Trade', 'Sweepstake', 'Cases', 'Upgrade', 'Changer', 'Click', 'Boomb', 'Booster', 'Plincoin', 'Flip', 'Tower', 'Fighter', 'Racing', 'Card', 'Crash'];
+  var items = [
+    '💰 <b>$2.48M</b> won today',
+    '🎮 <b>12,904</b> games played today',
+    '🏆 Biggest win <b>$1,240</b>',
+    '🎡 <b>1,847</b> spins in the last hour',
+    '💎 Jackpot pool <b>$42,900</b>',
+    '⚡ <b>98%</b> average payout',
+    '📺 Watch &amp; earn <b>+25 $SWEEP</b>',
+    '⛏️ Mining live — dig for $SWEEP'
+  ];
   function build() {
     var h = '';
-    for (var i = 0; i < names.length; i++) h += '<a href="game.html">' + names[i] + '</a><b>◆</b>';
-    h += '<a class="gt-perp" href="https://sweep-perp.onrender.com/" target="_blank" rel="noopener">⚡ Sweep Perp</a><b>◆</b>';
+    for (var i = 0; i < items.length; i++) h += '<span class="gt-stat">' + items[i] + '</span><span class="gt-sep">◆</span>';
     return h;
   }
   tr.innerHTML = build() + build();

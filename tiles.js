@@ -15,7 +15,8 @@
     'Fighter': 'pulse', 'Click': 'pulse', 'Sweepstake': 'ticket',
     'Scratch': 'scratch', 'Darts': 'darts', 'Slots': 'slots',
     'Roulette': 'wheel', 'Blackjack': 'card',
-    'Keno': 'keno', 'Limbo': 'limbo', 'Baccarat': 'card', 'Double': 'wheel'
+    'Keno': 'keno', 'Limbo': 'limbo', 'Baccarat': 'card', 'Double': 'wheel',
+    'Watch & Earn': 'video', 'Mining': 'mining'
   };
   var GOLD = '#f5b63d', GREEN = '#39d98a', RED = '#ff5470', VIO = '#7c5cff';
 
@@ -29,6 +30,24 @@
     var live = document.createElement('span'); live.className = 'gt-live'; live.innerHTML = '<i></i>LIVE'; t.appendChild(live);
     insts.push({ ctx: cv.getContext('2d'), W: cv.width, H: cv.height, type: type, seed: Math.random() * 1000, st: {} });
   });
+
+  // Watch & Earn tile → scroll to the video, reward 25 $SWEEP (once per session)
+  (function () {
+    var we = null;
+    tiles.forEach(function (t) { if (((t.querySelector('b') || {}).textContent || '').trim() === 'Watch & Earn') we = t; });
+    if (!we) return;
+    we.addEventListener('click', function (e) {
+      e.preventDefault();
+      var v = document.getElementById('whatis');
+      if (v && v.scrollIntoView) v.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      try { if (sessionStorage.getItem('sweep_watch_earned')) { if (window.toast) window.toast('You already claimed your watch reward. 🎬', 'info'); return; } } catch (e2) {}
+      if (window.toast) window.toast('▶ Enjoy the video — your 25 $SWEEP is on the way…', 'info');
+      setTimeout(function () {
+        try { var b = parseFloat(sessionStorage.getItem('sweep_bal')); if (!b || isNaN(b)) b = 1000; sessionStorage.setItem('sweep_bal', (b + 25).toFixed(2)); sessionStorage.setItem('sweep_watch_earned', '1'); } catch (e3) {}
+        if (window.toast) window.toast('🎉 You earned 25 $SWEEP for watching!', 'success');
+      }, reduce ? 300 : 5000);
+    });
+  })();
 
   function rand(a, b) { return a + Math.random() * (b - a); }
 
@@ -165,7 +184,39 @@
     c.fillText(mult.toFixed(2) + 'x', W / 2, H / 2 - 2);
   }
 
-  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo };
+  function video(g, c, W, H, tm) {
+    var cxp = W / 2, cyp = H / 2 - 4, p = (tm * 0.0018 + g.seed) % 1;
+    for (var k = 0; k < 2; k++) { var pp = (p + k / 2) % 1; c.globalAlpha = (1 - pp) * 0.55; c.strokeStyle = RED; c.lineWidth = 2; c.beginPath(); c.arc(cxp, cyp, 13 + pp * 20, 0, 7); c.stroke(); }
+    c.globalAlpha = 1;
+    c.fillStyle = RED; c.beginPath(); c.arc(cxp, cyp, 15, 0, 7); c.fill();
+    c.fillStyle = '#fff'; c.beginPath(); c.moveTo(cxp - 5, cyp - 7); c.lineTo(cxp - 5, cyp + 7); c.lineTo(cxp + 8, cyp); c.closePath(); c.fill();
+    c.fillStyle = GOLD; c.font = 'bold 11px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('WATCH → +25 $SWEEP', W / 2, H - 11);
+  }
+
+  function mining(g, c, W, H, tm) {
+    var rx = W / 2 + 6, ry = H / 2 + 8, p = tm * 0.004 + g.seed, hit = Math.sin(p);
+    // rock
+    c.fillStyle = '#39414f'; c.strokeStyle = 'rgba(0,0,0,.45)'; c.lineWidth = 1.5;
+    c.beginPath(); c.moveTo(rx - 20, ry + 10); c.lineTo(rx - 22, ry - 6); c.lineTo(rx - 8, ry - 16); c.lineTo(rx + 14, ry - 14); c.lineTo(rx + 22, ry + 2); c.lineTo(rx + 16, ry + 14); c.closePath(); c.fill(); c.stroke();
+    // gold vein in rock
+    c.fillStyle = GOLD; c.beginPath(); c.arc(rx + 1, ry - 2, 3, 0, 7); c.fill(); c.beginPath(); c.arc(rx - 7, ry + 4, 2, 0, 7); c.fill();
+    // SWEEP coins rising out of the rock
+    for (var i = 0; i < 3; i++) {
+      var cp = (p * 0.16 + i / 3 + g.seed) % 1, cy = ry - 10 - cp * 28, cx = rx + Math.sin(i * 2 + p) * 9;
+      c.globalAlpha = 1 - cp; c.fillStyle = GOLD; c.shadowColor = GOLD; c.shadowBlur = 5;
+      c.beginPath(); c.arc(cx, cy, 4, 0, 7); c.fill(); c.shadowBlur = 0;
+      c.fillStyle = 'rgba(0,0,0,.35)'; c.font = 'bold 5px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('S', cx, cy + 0.5);
+    }
+    c.globalAlpha = 1;
+    // swinging pickaxe
+    var ang = -0.5 + Math.max(0, hit) * 0.7;
+    c.save(); c.translate(rx - 22, ry - 20); c.rotate(ang);
+    c.strokeStyle = '#caa15a'; c.lineWidth = 3; c.lineCap = 'round'; c.beginPath(); c.moveTo(0, 0); c.lineTo(15, -15); c.stroke();
+    c.strokeStyle = '#d7dbe2'; c.lineWidth = 3.5; c.beginPath(); c.moveTo(9, -21); c.lineTo(21, -9); c.stroke();
+    c.restore(); c.lineCap = 'butt';
+  }
+
+  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo, video: video, mining: mining };
 
   function render(g, tm) {
     var c = g.ctx, W = g.W, H = g.H;
