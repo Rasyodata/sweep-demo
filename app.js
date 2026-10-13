@@ -425,7 +425,7 @@
   (function(){
     // Sweep Perp (KAAN PLATFORM TRADE) app URL. On localhost/LAN it targets :3300;
     // for production, set PERP_DEPLOYED to your deployed perp URL.
-    var PERP_DEPLOYED = 'http://localhost:3300/';
+    var PERP_DEPLOYED = 'https://sweep-perp.onrender.com/';
     var isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || /^192\.168\./.test(location.hostname) || /^10\./.test(location.hostname);
     var PERP = isLocal ? (location.protocol + '//' + location.hostname + ':3300/') : PERP_DEPLOYED;
     var pb = document.getElementById('perpBanner'); if(pb) pb.href = PERP;
