@@ -12,7 +12,9 @@
     'Dice': 'dice', 'Wheel': 'wheel', 'Racing': 'race',
     'Coin Flip': 'flip', 'Hi-Lo': 'card', 'Tower': 'stack',
     'Upgrade': 'arc', 'Booster': 'rocket', 'Sport': 'pulse',
-    'Fighter': 'pulse', 'Click': 'pulse', 'Sweepstake': 'ticket'
+    'Fighter': 'pulse', 'Click': 'pulse', 'Sweepstake': 'ticket',
+    'Scratch': 'scratch', 'Darts': 'darts', 'Slots': 'slots',
+    'Roulette': 'wheel', 'Blackjack': 'card'
   };
   var GOLD = '#f5b63d', GREEN = '#39d98a', RED = '#ff5470', VIO = '#7c5cff';
 
@@ -119,7 +121,33 @@
     for (var i = 0; i < 4; i++) { var d = Math.floor((tm * 0.01 + g.seed * 10 + i * 7)) % 10; c.fillStyle = i === 3 ? GOLD : '#cfd5e2'; c.fillText(d, W / 2 - 24 + i * 16, H / 2); }
   }
 
-  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket };
+  function rr(c, x, y, w, h, r) { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
+  function scratch(g, c, W, H, tm) {
+    var w = 80, h = 48, x = (W - w) / 2, y = (H - h) / 2;
+    c.fillStyle = '#20242e'; rr(c, x, y, w, h, 6); c.fill(); c.strokeStyle = 'rgba(245,182,61,.35)'; c.lineWidth = 1; c.stroke();
+    c.fillStyle = GOLD; c.font = 'bold 18px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('$50', W / 2, H / 2);
+    var rev = Math.min(1, (tm * 0.0009 + g.seed) % 1.5);
+    c.fillStyle = '#9aa0ad'; c.fillRect(x + w * rev, y, w * (1 - rev), h);
+    c.fillStyle = 'rgba(255,255,255,.4)'; for (var i = 0; i < 5; i++) c.fillRect(x + w * rev - 2, y + 5 + i * 9, 3, 3);
+  }
+  function darts(g, c, W, H, tm) {
+    var cxp = W / 2, cyp = H / 2, rings = [[20, '#2a2f3a'], [15, '#eef1f6'], [11, RED], [6, '#16181c'], [3, GOLD]];
+    rings.forEach(function (ri) { c.fillStyle = ri[1]; c.beginPath(); c.arc(cxp, cyp, ri[0], 0, 7); c.fill(); });
+    var p = (tm * 0.0013 + g.seed) % 1, d = (1 - Math.min(1, p * 1.5)) * 42, dx = cxp + d * 0.7, dy = cyp - d;
+    c.strokeStyle = 'rgba(255,255,255,.55)'; c.lineWidth = 1.5; c.beginPath(); c.moveTo(dx + 8, dy - 8); c.lineTo(dx, dy); c.stroke();
+    c.fillStyle = GREEN; c.beginPath(); c.arc(dx, dy, 2.6, 0, 7); c.fill();
+  }
+  function slots(g, c, W, H, tm) {
+    var syms = ['7', '$', '◆', '★', 'S'], cols = [GOLD, GREEN, VIO];
+    for (var r = 0; r < 3; r++) {
+      var x = W / 2 - 28 + r * 28;
+      c.fillStyle = 'rgba(255,255,255,.05)'; rr(c, x - 12, H / 2 - 17, 24, 34, 4); c.fill(); c.strokeStyle = 'rgba(255,255,255,.1)'; c.lineWidth = 1; c.stroke();
+      var idx = Math.floor(tm * 0.006 + g.seed * 13 + r * 4) % syms.length;
+      c.fillStyle = cols[r]; c.font = 'bold 16px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(syms[idx], x, H / 2);
+    }
+  }
+
+  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots };
 
   function render(g, tm) {
     var c = g.ctx, W = g.W, H = g.H;

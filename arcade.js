@@ -1,3 +1,33 @@
+/* Scrolling games-name ticker — fills #gtickerTrack (duplicated for a seamless loop). */
+(function () {
+  var tr = document.getElementById('gtickerTrack');
+  if (!tr) return;
+  var names = ['Market', 'Sport', 'Trade', 'Sweepstake', 'Cases', 'Upgrade', 'Changer', 'Click', 'Boomb', 'Booster', 'Plincoin', 'Flip', 'Tower', 'Fighter', 'Racing', 'Card', 'Crash'];
+  function build() {
+    var h = '';
+    for (var i = 0; i < names.length; i++) h += '<a href="game.html">' + names[i] + '</a><b>◆</b>';
+    h += '<a class="gt-perp" href="https://sweep-perp.onrender.com/" target="_blank" rel="noopener">⚡ Sweep Perp</a><b>◆</b>';
+    return h;
+  }
+  tr.innerHTML = build() + build();
+})();
+
+/* Live "players online" counter under the arcade panel — gentle random walk. */
+(function () {
+  var el = document.getElementById('gpOnline');
+  if (!el) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var n = 3200 + Math.floor(Math.random() * 900);
+  function render() { el.textContent = n.toLocaleString('en-US'); }
+  render();
+  if (reduce) return;
+  setInterval(function () {
+    n += Math.floor(Math.random() * 15) - 6;
+    if (n < 2600) n = 2600; if (n > 4800) n = 4800;
+    render();
+  }, 1400);
+})();
+
 /* Sweep Arcade games panel — paginated carousel (10 per page, slides left).
    Self-contained: no-ops without #gpTrack. */
 (function () {

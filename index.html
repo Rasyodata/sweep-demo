@@ -82,6 +82,16 @@
   </div>
 </div>
 
+<!-- ======================= GAMES TICKER (scrolling names) ======================= -->
+<div class="hero gticker-hero">
+  <div class="gticker">
+    <span class="gticker-tag"><i></i> LIVE GAMES</span>
+    <div class="gticker-mask">
+      <div class="gticker-track" id="gtickerTrack"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ======================= GAMES PANEL (instant play) ======================= -->
 <div class="hero arcade-hero">
   <div class="gpanel">
@@ -98,28 +108,40 @@
     <div class="gp-viewport">
       <div class="gp-track" id="gpTrack">
         <div class="gp-page">
+          <a class="gtile" href="game.html"><span class="gt-ic">🎫</span><b>Scratch</b><span class="gt-play">Play →</span></a>
+          <a class="gtile" href="game.html"><span class="gt-ic">🎯</span><b>Darts</b><span class="gt-play">Play →</span></a>
+          <a class="gtile" href="game.html"><span class="gt-ic">🎰</span><b>Slots</b><span class="gt-play">Play →</span></a>
+          <a class="gtile" href="game.html"><span class="gt-ic">🔴</span><b>Roulette</b><span class="gt-play">Play →</span></a>
+          <a class="gtile" href="game.html"><span class="gt-ic">🎴</span><b>Blackjack</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🚀</span><b>Crash</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🔻</span><b>Plinko</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">💣</span><b>Mines</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🎲</span><b>Dice</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🎡</span><b>Wheel</b><span class="gt-play">Play →</span></a>
+        </div>
+        <div class="gp-page">
           <a class="gtile" href="game.html"><span class="gt-ic">🪙</span><b>Coin Flip</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🗼</span><b>Tower</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">📦</span><b>Cases</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">⬆️</span><b>Upgrade</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🃏</span><b>Hi-Lo</b><span class="gt-play">Play →</span></a>
-        </div>
-        <div class="gp-page">
           <a class="gtile" href="game.html"><span class="gt-ic">🏇</span><b>Racing</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🥊</span><b>Fighter</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">📈</span><b>Market</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">⚽</span><b>Sport</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">💹</span><b>Trade</b><span class="gt-play">Play →</span></a>
+        </div>
+        <div class="gp-page">
           <a class="gtile" href="game.html"><span class="gt-ic">🎟️</span><b>Sweepstake</b><span class="gt-play">Play →</span></a>
-          <a class="gtile" href="game.html"><span class="gt-ic">🎯</span><b>Click</b><span class="gt-play">Play →</span></a>
+          <a class="gtile" href="game.html"><span class="gt-ic">🖱️</span><b>Click</b><span class="gt-play">Play →</span></a>
           <a class="gtile" href="game.html"><span class="gt-ic">🔥</span><b>Booster</b><span class="gt-play">Play →</span></a>
         </div>
       </div>
+    </div>
+    <div class="gp-foot">
+      <span class="gp-online"><i></i> <b id="gpOnline">0</b> players online now</span>
+      <span class="gp-foot-sep">·</span>
+      <span class="gp-foot-games">23 games · instant play · no sign-up</span>
     </div>
   </div>
 </div>
@@ -198,6 +220,36 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DAILY SPIN ======================= -->
+<section class="catch-sec" id="dailySpin">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Daily Reward · Free</div>
+        <h2 style="margin-top:10px">Daily Spin</h2>
+        <p class="sub">Spin once every day for free $SWEEP — every spin is a guaranteed win. Come back tomorrow for another.</p>
+      </div>
+      <a href="game.html" class="viewall">All games →</a>
+    </div>
+    <div class="spin-wrap">
+      <div class="spin-stage">
+        <div class="spin-ptr"></div>
+        <canvas id="spinCv" width="360" height="360" aria-label="Daily reward wheel"></canvas>
+        <div class="spin-hub">SWEEP</div>
+      </div>
+      <div class="spin-side">
+        <div class="spin-reward-k">TODAY'S REWARD</div>
+        <div class="spin-reward" id="spinReward">—</div>
+        <button class="btn gold wfull" id="spinBtn">▶ SPIN TO WIN</button>
+        <div class="spin-note" id="spinNote">One free spin per day. Rewards land in your demo balance.</div>
+        <div class="spin-legend">
+          <span>🎁 Guaranteed $SWEEP</span><span>💎 ×2 / ×5 bonus</span><span>🏆 Jackpot 500</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -526,5 +578,6 @@
 <script src="livefeed.js"></script>
 <script src="arcade.js"></script>
 <script src="tiles.js"></script>
+<script src="spin.js"></script>
 </body>
 </html>
