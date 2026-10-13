@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweep — Building the future of web3 economies</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- ======================= HEADER ======================= -->
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="#" aria-label="Sweep home">
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTU0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzU4XzE0NSkiPgo8cGF0aCBkPSJNMTIuMTc2IDIzLjM2ODRDMTAuMjY5MyAyMy4zOTQgOC4zNjQyMiAyMy4yNDYgNi40ODQzIDIyLjkyNjNDNS40NjYxNyAyMi43NTAxIDQuNDczMjMgMjIuNDUwNyAzLjUyNzM3IDIyLjAzNDVMMy41OTQ5IDIyLjE3MDNMMi42NjUyMyAyMS41NzY2QzAuNzA4NjY4IDIwLjMyNjEgMC4xNTgzMDIgMTguMjY0NiAxLjAzNjIzIDE1LjQ1MDNMMS4xMDMxMyAxNS4yMzU2SDguOTExN0w4Ljc2Mjc0IDE1LjY0NTVDOC42ODM3MSAxNS44MTAxIDguNjQ3NjkgMTUuOTkyMSA4LjY1ODA2IDE2LjE3NDVDOC42Njg0NCAxNi4zNTY5IDguNzI0ODYgMTYuNTMzNiA4LjgyMjA2IDE2LjY4ODJDOS4xNzM2MSAxNy4xOTM1IDEwLjMwNTkgMTcuNzg5MSAxMy43MDA4IDE3Ljc4OTFDMTQuODgyOCAxNy44MDg4IDE2LjA2NDUgMTcuNzM2NiAxNy4yMzUzIDE3LjU3MzFDMTcuODM5MiAxNy41MTA1IDE4LjQyNTQgMTcuMzMyNCAxOC45NjIxIDE3LjA0ODJDMTkuMjU0NyAxNi44NTMgMTkuNDc1MSAxNi41NjY5IDE5LjU4OTQgMTYuMjM0MUMxOS43NjkzIDE1Ljc0MDggMTkuNjI5OCAxNS42MDI1IDE5LjU4NDQgMTUuNTYwMkMxOS4yMTA4IDE1LjMwNjggMTguNzc1OCAxNS4xNTg5IDE4LjMyNTMgMTUuMTMyQzE3LjYxMDggMTUuMDA1NyAxNi4zNzUgMTQuODg0NCAxNC42NTIgMTQuNzY5NUwxMy42NTI5IDE0LjcwNjNDMTEuOTQ0NiAxNC42MjczIDEwLjI0NjYgMTQuMzk4IDguNTc4NDUgMTQuMDIxMUM3LjQyMzY5IDEzLjc4NSA2LjMyNzM4IDEzLjMyMTUgNS4zNTMyOCAxMi42NTc1QzMuODAwNjYgMTEuNDg1OSAzLjQ1MjI3IDkuNjg5MDYgNC4zMTYzMSA3LjMxMThDNS4xMTAyOSA1LjEzMDMyIDYuODE0MzggMy40NDc3OSA5LjM4MTI2IDIuMzEwOTVDMTIuMzcxNyAxLjEwODgxIDE1LjU3NzkgMC41MzcxMDYgMTguNzk5MyAwLjYzMTU4M0MyMC41OTQ4IDAuNjA2MzY5IDIyLjM4ODIgMC43NjE4ODggMjQuMTUyNiAxLjA5NTc5QzI1LjQ0MTkgMS4zMjMwNCAyNi42NzIzIDEuODA3MTQgMjcuNzcxIDIuNTE5MzdDMjkuNjI3OCAzLjgyMzU4IDMwLjE4NDUgNS43NDA0MyAyOS40MjU5IDguMjEwNTNNMjkuMzYyOCA4LjQyNjUzSDIxLjU0ODVMMjEuNjk5NCA4LjAxNjAxQzIxLjkyNzIgNy4zOTUxNiAyMS43MzQxIDYuOTk0NzQgMjEuMDczOSA2LjcxNjg1QzE5LjcyOTkgNi4zMTQyNCAxOC4zMjYxIDYuMTQ4ODIgMTYuOTI1NCA2LjIyOEMxNS42ODg3IDYuMTc0NDEgMTQuNDUwNyA2LjI5NjY4IDEzLjI0ODMgNi41OTExNkMxMi45OTAyIDYuNjQ1ODYgMTIuNzQ3NiA2Ljc1NzMyIDEyLjUzNzkgNi45MTc0NkMxMi4zMjgyIDcuMDc3NiAxMi4xNTY3IDcuMjgyNDEgMTIuMDM1OSA3LjUxNzA2QzExLjkwOTYgNy44NjA2NCAxMS45MzQ5IDguMTMyODQgMTIuNDYxMyA4LjM0NTY5QzEyLjg1ODkgOC41MDYxMSAxMy45MDIyIDguNzM2NjQgMTYuNjE2NyA4LjkyMjk1TDE3Ljc5MzggOS4wMDg4NUMxOS4wODMzIDkuMTIgMTkuOTU4NyA5LjE5ODMyIDIwLjYzNCA5LjI3MjIxQzIxLjQwMDggOS4zNTM2OSAyMi4yMTE5IDkuNDc4MTEgMjMuMDQ3NSA5LjY0Mjk1QzIzLjc1NiA5Ljc3MTMgMjQuNDUxOCA5Ljk2MTUgMjUuMTI3MSAxMC4yMTE0QzI1LjY2MjEgMTAuNDI4NSAyNi4xNjc0IDEwLjcxMjUgMjYuNjMxMiAxMS4wNTY0QzI3LjA4NjQgMTEuMzc1NyAyNy40NDAyIDExLjgxOTIgMjcuNjUwNSAxMi4zMzQxQzI3Ljg0MTIgMTIuODcwNSAyNy45MjA5IDEzLjQ0MDIgMjcuODg0NiAxNC4wMDg0QzI3LjgzNjMgMTQuNzQyNSAyNy42NzggMTUuNDY1IDI3LjQxNSAxNi4xNTJDMjYuOTgzOSAxNy40MDI5IDI2LjI5MjMgMTguNTQ3OSAyNS4zODYgMTkuNTExM0MyNC40Nzk3IDIwLjQ3NDggMjMuMzc5MyAyMS4yMzQ3IDIyLjE1NzYgMjEuNzQwOEMyMC43NTAyIDIyLjMyNjQgMTkuMjc2NSAyMi43MzcgMTcuNzY5MiAyMi45NjM2QzE1LjkxODUgMjMuMjQ2OCAxNC4wNDgyIDIzLjM4MjEgMTIuMTc2IDIzLjM2ODRaTTIuNzgwMDkgMjAuOTE0MUwyLjk4NzExIDIxLjA0NjFDNC43NjY5NCAyMi4xODMgNy44NTgzIDIyLjc1NzcgMTIuMTc1NCAyMi43NTc3QzE2LjIxOTEgMjIuNzU3NyAxOS40OTY3IDIyLjIyNzIgMjEuOTEyNyAyMS4xNzg3QzIzLjA1MzMgMjAuNjk4NyAyNC4wODMxIDE5Ljk4OTMgMjQuOTM4NCAxOS4wOTQ1QzI1Ljc4MDQgMTguMTg0NiAyNi40MjcgMTcuMTExNiAyNi44MzgyIDE1Ljk0MTdDMjcuMDc5NCAxNS4zMTQzIDI3LjIyNTYgMTQuNjU0NCAyNy4yNzE4IDEzLjk4MzhDMjcuMzA0MyAxMy40OTkgMjcuMjM4NCAxMy4wMTI2IDI3LjA3OCAxMi41NTM5QzI2LjkwODggMTIuMTQ3NiAyNi42MjY2IDExLjc5ODUgMjYuMjY1MSAxMS41NDc4QzI1Ljg0MzQgMTEuMjM0OCAyNS4zODM4IDEwLjk3NjMgMjQuODk3NCAxMC43Nzg1QzI0LjI1NzMgMTAuNTQxNyAyMy41OTc4IDEwLjM2MTMgMjIuOTI2MyAxMC4yMzkyQzIyLjEwOSAxMC4wNzgxIDIxLjMxNSA5Ljk1NjIxIDIwLjU2NjUgOS44NzY2NEMxOS44OTc0IDkuODA1OSAxOS4wMjU4IDkuNzI1MDYgMTcuNzQxNCA5LjYxNDUzTDE2LjU3MTkgOS41MjkyN0MxNS4xMDUxIDkuNTAyMDUgMTMuNjQ3MyA5LjI5Mzc0IDEyLjIzMTUgOC45MDkwNkMxMi4wNjcxIDguODY3NCAxMS45MTM5IDguNzkwMTUgMTEuNzgyNiA4LjY4Mjc1QzExLjY1MTMgOC41NzUzNiAxMS41NDUyIDguNDQwNDQgMTEuNDcxNyA4LjI4NzUxQzExLjM5ODIgOC4xMzQ1OCAxMS4zNTkxIDcuOTY3MzcgMTEuMzU3MyA3Ljc5NzY5QzExLjM1NTQgNy42MjgwMSAxMS4zOTA4IDcuNDU5OTggMTEuNDYwOSA3LjMwNTQ4QzExLjYxMDIgNi45ODIzNiAxMS44MzEyIDYuNjk3NjMgMTIuMTA3MiA2LjQ3MzAyQzEyLjM4MzEgNi4yNDg0MiAxMi43MDY3IDYuMDg5ODcgMTMuMDUzMyA2LjAwOTQ4QzE0LjMxOCA1LjY5MjggMTUuNjIxNiA1LjU1OTg2IDE2LjkyNDEgNS42MTQ3NEMxOS4wMTc2IDUuNjE0NzQgMjAuNDUyMiA1Ljc5MDMyIDIxLjMxIDYuMTUxNThDMjEuNjYxIDYuMjQ5NDYgMjEuOTY0IDYuNDcyNjYgMjIuMTYxNyA2Ljc3ODk3QzIyLjM1OTQgNy4wODUyOCAyMi40MzgxIDcuNDUzNDYgMjIuMzgyOSA3LjgxMzlIMjguOTA3N0MyOS40OTQ3IDUuNzAxOSAyOS4wMDgxIDQuMTMxMTYgMjcuNDIyNiAzLjAxNzY5QzI1Ljc0MzggMS44Mzg1MyAyMi44NDMgMS4yNDA0MiAxOC44MDExIDEuMjQwNDJDMTUuNjY1NyAxLjE0NzUyIDEyLjU0NDggMS43MDIyMiA5LjYzMzA5IDIuODY5OUM4LjUyMDExIDMuMzQxNzEgNy41MDExNiA0LjAxMDI4IDYuNjI1MDUgNC44NDM1OEM1Ljg1NDgzIDUuNTk1MDggNS4yNjMzNiA2LjUxMDI5IDQuODk0NDQgNy41MjE0OEM0LjEyMTkxIDkuNjQ0MjEgNC4zOTM5NCAxMS4xNjUxIDUuNzI1NjYgMTIuMTY5OUM3LjExMDQgMTMuMjE1MiA5Ljc5MDI1IDEzLjg2MDYgMTMuNjkwNyAxNC4wODhMMTQuNjkyNCAxNC4xNTEyQzE2LjQzODggMTQuMjY4IDE3LjY5NiAxNC4zOTI0IDE4LjQzMTkgMTQuNTIxOUMxOS4wMDU5IDE0LjU2NjIgMTkuNTU1NCAxNC43NzMyIDIwLjAxNjEgMTUuMTE4N0MyMC4xNzIzIDE1LjI5NjggMjAuMjcwNSAxNS41MTg0IDIwLjI5NzUgMTUuNzUzOEMyMC4zMjQ2IDE1Ljk4OTIgMjAuMjc5MyAxNi4yMjczIDIwLjE2NzYgMTYuNDM2MkMyMC4wMTAxIDE2Ljg5MTYgMTkuNzA3NyAxNy4yODI4IDE5LjMwNjcgMTcuNTQ5N0MxOC42OTg0IDE3Ljg4NzcgMTguMDI4MiAxOC4wOTkzIDE3LjMzNjIgMTguMTcxOEMxNi4xMzI3IDE4LjM0MDkgMTQuOTE3OSAxOC40MTU4IDEzLjcwMjcgMTguMzk2QzEwLjcyNDMgMTguMzk2IDguOTY1MzQgMTcuOTUzOSA4LjMyNDEgMTcuMDM1QzguMjA0NDcgMTYuODYzMyA4LjEyMTA2IDE2LjY2OSA4LjA3ODk1IDE2LjQ2NEM4LjAzNjg1IDE2LjI1OSA4LjAzNjk0IDE2LjA0NzUgOC4wNzkyMSAxNS44NDI1SDEuNTU1NjdDMC44Nzg0NSAxOC4xNzU2IDEuMjgxNzUgMTkuODM4NSAyLjc4MDczIDIwLjkxNDFIMi43ODAwOVpNOTEuNTkwMSAyMi43OTQzSDcyLjU1MzVMNzUuNjQ5OSAxNC4yODM4TDkxLjU5MDEgMjIuNzk0M1pNNzMuNDI1NyAyMi4xODM2SDg5LjE0OTVMNzUuOTg1IDE1LjE1MzVMNzMuNDI1NyAyMi4xODM2Wk02My44NjQ0IDIyLjc5NDNINTMuNDk3OEw1My4yMDQ0IDcuODczOUw0Mi4wNTI2IDIyLjc5NDNIMzEuNjUxOUwzMi4zNTUgMS4xMzExNkgzOS45MTYyTDM5LjI5MDEgMTYuMzYxMUw1MC43OTc4IDEuMTAyNzRMNjAuNDgyOCA2LjE4Njk1TDYwLjc2MTEgMTYuMzc4N0w2NS44MDUyIDkuMDI5MDZMNzEuMzY3NSAxMS45OTQzTDYzLjg2NDQgMjIuNzk0M1pNNTQuMDk2OCAyMi4xODM2SDYzLjU0NTdMNzAuNDc0NSAxMi4yMTIyTDY2LjAwMDMgOS44MjY3NEw2MC4yMDMyIDE4LjI3NDFMNTkuODgzMiA2LjU2MDIyTDUxLjAyMTkgMS44MzAzMkwzOC42MDA5IDE4LjI5MTJMMzkuMjgxMiAxLjc0Mzc5SDMyLjk0NzdMMzIuMjg0NCAyMi4xODM2SDQxLjc1MTZMNTMuNzg1IDYuMDg0MDFMNTQuMDk2OCAyMi4xODM2WiIgZmlsbD0iI0VCRUNFRSIvPgo8cGF0aCBkPSJNMTE5LjcyOCAyMi44MDYzSDk3LjU2NTdMMTA1LjQzNyAxLjEzMjQySDEyNy41OThMMTI1LjQ5IDYuOTM2SDExMC44N0wxMTAuMDE2IDkuMjg3MzdIMTI0LjA1MUwxMjIuMTE0IDE0LjYyMDRIMTA4LjA3OUwxMDcuMjE1IDE3LjAwMzRIMTIxLjgzNUwxMTkuNzI4IDIyLjgwNjNaTTEzMC4wNzkgMjIuNzk0M0gxMjIuNTQ1TDEzMC40MyAxLjEzMjQySDE0Ny4xMTNDMTQ4LjI4NSAxLjEwMzEgMTQ5LjQ1MyAxLjI4NzM2IDE1MC41NTkgMS42NzYyMUMxNTEuNDU3IDEuOTk4NzkgMTUyLjIzNiAyLjU4NDczIDE1Mi43OTYgMy4zNTc0OEMxNTMuMzMzIDQuMTQ0NzEgMTUzLjYyMSA1LjA3NjE3IDE1My42MiA2LjAyOTY4QzE1My42MDkgNy4yMDM4NiAxNTMuMzg0IDguMzY2MTkgMTUyLjk1NSA5LjQ1OTE2QzE1Mi4xMjQgMTEuODY5NiAxNTAuNTU2IDEzLjk1NzQgMTQ4LjQ3NCAxNS40MjY5QzE0Ni4zODEgMTYuODY2MiAxNDMuODkyIDE3LjYxNjggMTQxLjM1MiAxNy41NzQzSDEzMS45ODFMMTMwLjA3OSAyMi43OTQzWk0xMzQuMzA3IDExLjE4NzhIMTQxLjgxNEMxNDIuNTg2IDExLjIyODIgMTQzLjM1NyAxMS4wODU2IDE0NC4wNjQgMTAuNzcxNkMxNDQuNjIgMTAuNDIyOSAxNDUuMDI3IDkuODgxMDkgMTQ1LjIwOSA5LjI1MDFDMTQ1LjM4IDguNzc5NTggMTQ1LjUyNCA4LjE2NTY4IDE0NS4yMjkgNy45MTM2OEMxNDUuMDM0IDcuNzQ2MzIgMTQ0LjU1MiA3LjU0NzM3IDE0My4zNTkgNy41NDczN0gxMzUuNjNMMTM0LjMwNyAxMS4xODc4Wk05NC43MjM3IDIyLjc5NTZIOTAuMzAxMkw3NS40NDY1IDE0Ljg2MjlMODAuNDM4OSAxLjEzMjQySDEwMi42MDFMMTAwLjQ5MyA2LjkyOTY4SDg1Ljg2NjhMODUuMDEzNSA5LjI4MTY4SDk5LjA0ODNMOTcuMTEwNyAxNC42MTQ3SDgzLjA3NThMODIuMjA2MSAxNi45OTc3SDk2LjgzMTdMOTQuNzIzNyAyMi43OTU2Wk03MS4wMjM0IDEyLjUwMDhMNjUuNDY0MyA5LjUzNjg0TDcxLjIzNzQgMS4xMzI0Mkg3OC45Mjk4TDcxLjAyMzQgMTIuNTAwOFpNNjAuNTA5MiA2Ljg5MDUyTDUwLjQ4MDIgMS41NDIzMkw1MC44MDc4IDEuMDc2ODRMNjAuMzUyNiAxLjEzMjQyTDYwLjUwOTIgNi44OTA1MloiIGZpbGw9IiNFQkVDRUUiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zNThfMTQ1Ij4KPHJlY3Qgd2lkdGg9IjE1NCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="Sweep">
+    </a>
+    <div class="search">
+      <input type="text" placeholder="Search people, news, pages…" aria-label="Search">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="top-actions">
+      <a href="#whatis" class="howit" data-i18n="howit">How it works?</a>
+      <button class="langbtn" id="langBtn" aria-label="Switch language">🌐 <span id="langLbl">TR</span></button>
+      <button class="btn-login" data-auth="login">Log In</button>
+      <button class="btn-signup" data-auth="signup">Sign Up</button>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= GAME NAV ======================= -->
+<nav class="gamenav" aria-label="Games">
+  <div class="track" id="gtrack"></div>
+</nav>
+
+<!-- ======================= HERO: WHAT IS SWEEP + VIDEO ======================= -->
+<div class="hero" id="whatis">
+  <div class="stage">
+    <video autoplay loop muted playsinline preload="auto"
+           poster="https://sweep.finance/web/images/home/sweep-video.webp">
+      <source src="https://cdn.sweep.finance/web/video/sweep-video.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+
+    <!-- floating quote HUD over the video -->
+    <div class="hud">
+      <div class="quote">
+        <div class="sym">
+          <div class="badge">S</div>
+          <div><b>SWEEP / USDT</b><br><span>Spot · 24h</span></div>
+        </div>
+        <div class="price">$0.0428</div>
+        <div class="chg up">▲ +6.41%</div>
+      </div>
+      <div class="livepill"><i></i> Live market</div>
+    </div>
+
+    <!-- video sound toggle -->
+    <button class="vsound" id="vsound" aria-label="Unmute video" aria-pressed="false">
+      <span class="ic" id="vsIc">🔇</span><span id="vsLbl">Sound off</span>
+    </button>
+
+    <!-- copy -->
+    <div class="hero-copy">
+      <div class="eyebrow">What is SWEEP Token?</div>
+      <h1>Building the future of <span class="g">web3 economies</span>.</h1>
+      <p>SWEEP is the heartbeat of a Web3 gaming ecosystem where your activity creates value. Every interaction fuels a transparent, self-sustaining economy — part of the flow is burned on-chain, part is returned to the community in USDT.</p>
+      <div class="hero-cta">
+        <button class="btn gold">BUY SWEEP</button>
+        <a href="airdrop.html" class="btn">Join the Airdrop</a>
+      </div>
+    </div>
+
+    <!-- bottom stat strip over the video -->
+    <div class="hud-stats">
+      <div><div class="k">24h High</div><div class="v up">$0.0441</div></div>
+      <div><div class="k">24h Low</div><div class="v down">$0.0397</div></div>
+      <div><div class="k">Market Cap</div><div class="v">$61.4M</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= STATS BAR ======================= -->
+<section style="padding:42px 0 0">
+  <div class="wrap">
+    <div class="statsbar">
+      <div class="stat"><div class="sv num" data-count="700000" data-prefix="$" data-dec="2">$0</div><div class="sk" data-i18n="st_raised">Total Raised</div></div>
+      <div class="stat"><div class="sv num" data-count="15361">0</div><div class="sk" data-i18n="st_holders">Total Holders</div></div>
+      <div class="stat"><div class="sv num" data-count="45000000">0</div><div class="sk" data-i18n="st_sold">Total Tokens Sold</div></div>
+      <div class="stat"><div class="sv num" data-count="164">0</div><div class="sk" data-i18n="st_country">Countries</div></div>
+      <div class="stat"><div class="sv num" data-count="82206">0</div><div class="sk" data-i18n="st_users">Total Users</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SALE / BUY / AIRDROP ======================= -->
+<section>
+  <div class="wrap">
+    <div class="cards">
+
+      <!-- Token sale -->
+      <div class="card">
+        <h3>$SWEEP Token Sale <span class="tag soon">Phase 3 · Soon</span></h3>
+        <p class="lead">Buy into the public sale. Phases 1 &amp; 2 are fully subscribed — Phase 3 pricing lands soon.</p>
+        <div class="phases">
+          <div class="phase"><div class="pn">Phase 1</div><div class="ps">$0.01</div><div class="st up">· SOLD</div></div>
+          <div class="phase"><div class="pn">Phase 2</div><div class="ps">$0.02</div><div class="st up">· SOLD</div></div>
+          <div class="phase active"><div class="pn">Phase 3</div><div class="ps">—</div><div class="st" style="color:var(--gold)">· SOON</div></div>
+        </div>
+        <div class="progress">
+          <div class="labels"><span>Sales Rate · 0.00%</span><span>0 / 1,000,000</span></div>
+          <div class="bar"><i></i></div>
+        </div>
+        <div class="mini-stats">
+          <div class="mini"><div class="k">Sold (USD)</div><div class="v">$0.00</div></div>
+          <div class="mini"><div class="k">Allocation filled</div><div class="v">0%</div></div>
+        </div>
+      </div>
+
+      <!-- Buy widget -->
+      <div class="card">
+        <h3>Place Order</h3>
+        <p class="lead">Fund your allocation directly.</p>
+        <div class="tabs" role="tablist">
+          <button class="on" role="tab" aria-selected="true">Credit Card</button>
+          <button role="tab" aria-selected="false">Crypto</button>
+        </div>
+        <div class="amount">
+          <input type="text" inputmode="decimal" placeholder="0.00" aria-label="Amount">
+          <span class="cur">USD</span>
+        </div>
+        <p class="notice">Orders for Phase 3 are currently unavailable.</p>
+        <button class="btn gold wfull" disabled style="opacity:.6;cursor:not-allowed">BUY SWEEP</button>
+      </div>
+
+      <!-- Airdrop -->
+      <div class="card airdrop-card" id="airdrop">
+        <h3>Airdrop <span class="tag soon">Coming soon</span></h3>
+        <p class="lead" style="margin-top:12px">Play <b style="color:var(--ink)">Sweepbird</b>, complete tasks, earn XP, climb the leaderboard, and increase your final <b style="color:var(--gold)">$SWEEP</b> allocation through exclusive airdrop rewards.</p>
+        <div style="margin-top:20px">
+          <a href="airdrop.html" class="btn gold wfull" style="text-decoration:none">Join the Airdrop</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SWEEP PERP ======================= -->
+<section class="perp-sec">
+  <div class="wrap">
+    <a class="perp-banner" id="perpBanner" href="#" target="_blank" rel="noopener">
+      <div class="perp-left">
+        <span class="perp-badge">⚡ NEW · ON-CHAIN PERPETUALS</span>
+        <h2>Sweep <span class="g">Perp</span> — enjoy &amp; make money.</h2>
+        <p>Trade BTC, ETH, SOL and more with leverage on Sweep's on-chain perpetual futures. Deep liquidity, live PnL, a global leaderboard &amp; rewards — paper-trade or go live.</p>
+        <span class="perp-cta">Launch Sweep Perp →</span>
+      </div>
+      <div class="perp-right">
+        <canvas id="perpChart" width="440" height="150" aria-hidden="true"></canvas>
+        <div class="perp-stats">
+          <div><b class="up">$1.03B</b><span>24h Volume</span></div>
+          <div><b>$819.75M</b><span>Open Interest</span></div>
+          <div><b class="up">+$246K</b><span>Top PnL today</span></div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ======================= BREAKING NEWS ======================= -->
+<section style="padding-top:12px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Breaking News</div>
+        <h2 style="margin-top:10px">The thinking behind Sweep</h2>
+        <p class="sub">How the ecosystem works, where it's going, and why it's built the way it is.</p>
+      </div>
+      <a href="#" class="viewall">View All →</a>
+    </div>
+    <div class="news">
+      <a class="item" href="#">
+        <span class="no">01</span>
+        <h4 data-i18n="nt1">How Sweep Works</h4>
+        <p data-i18n="ne1">Sweep is a Web3 gaming ecosystem where user activity directly drives value creation. Instead of relying on external rewards or artificial incentives, it runs on a closed-loop system where gameplay, transactions, and economic mechanics are all interconnected.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">02</span>
+        <h4 data-i18n="nt2">Deflationary Model</h4>
+        <p data-i18n="ne2">Sweep operates a built-in deflationary mechanism that continuously reduces the circulating supply of the SWEEP token with every cycle of activity.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">03</span>
+        <h4 data-i18n="nt3">Distribution Model</h4>
+        <p data-i18n="ne3">The Sweep ecosystem operates on a volume-driven distribution system powered entirely by real user activity — not emissions or inflation.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">04</span>
+        <h4 data-i18n="nt4">How Rewards Are Generated</h4>
+        <p data-i18n="ne4">Rewards within Sweep are generated directly from user activity and transaction volume across the platform, then recirculated to participants.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">05</span>
+        <h4 data-i18n="nt5">What is Sweep</h4>
+        <p data-i18n="ne5">Sweep is a next-generation Web3 ecosystem where entertainment, financial infrastructure, and value creation converge into a single economy.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">06</span>
+        <h4 data-i18n="nt6">Sweep</h4>
+        <p data-i18n="ne6">Sweep is the paradigm of the future — a platform built so that the people who generate activity are the ones who share in its value.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">07</span>
+        <h4 data-i18n="nt7">Vision &amp; Mission</h4>
+        <p data-i18n="ne7">To redefine the future of digital ecosystems by building a fully transparent, self-sustaining, user-driven Web3 environment where interaction, finance, and value creation converge.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">08</span>
+        <h4 data-i18n="nt8">From Problem to Solution</h4>
+        <p data-i18n="ne8">Digital gaming and online interaction industries generate massive global volume each year, yet most platforms still operate on outdated, opaque models that treat users as passive participants with no ownership.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">09</span>
+        <h4 data-i18n="nt9">Why Sweep?</h4>
+        <p data-i18n="ne9">These industries are undergoing a fundamental transformation, yet most platforms still extract value without distributing it. Users generate activity, engagement and liquidity but stay disconnected from the economy they build.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+      <a class="item" href="#">
+        <span class="no">10</span>
+        <h4 data-i18n="nt10">Economic Engine</h4>
+        <p data-i18n="ne10">Sweep is built on an activity-based protocol architecture where user interactions are directly converted into economic outputs — every action is also measurable on-chain transaction volume.</p>
+        <span class="read" data-i18n="read">Read article →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTU0IiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMTU0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzU4XzE0NSkiPgo8cGF0aCBkPSJNMTIuMTc2IDIzLjM2ODRDMTAuMjY5MyAyMy4zOTQgOC4zNjQyMiAyMy4yNDYgNi40ODQzIDIyLjkyNjNDNS40NjYxNyAyMi43NTAxIDQuNDczMjMgMjIuNDUwNyAzLjUyNzM3IDIyLjAzNDVMMy41OTQ5IDIyLjE3MDNMMi42NjUyMyAyMS41NzY2QzAuNzA4NjY4IDIwLjMyNjEgMC4xNTgzMDIgMTguMjY0NiAxLjAzNjIzIDE1LjQ1MDNMMS4xMDMxMyAxNS4yMzU2SDguOTExN0w4Ljc2Mjc0IDE1LjY0NTVDOC42ODM3MSAxNS44MTAxIDguNjQ3NjkgMTUuOTkyMSA4LjY1ODA2IDE2LjE3NDVDOC42Njg0NCAxNi4zNTY5IDguNzI0ODYgMTYuNTMzNiA4LjgyMjA2IDE2LjY4ODJDOS4xNzM2MSAxNy4xOTM1IDEwLjMwNTkgMTcuNzg5MSAxMy43MDA4IDE3Ljc4OTFDMTQuODgyOCAxNy44MDg4IDE2LjA2NDUgMTcuNzM2NiAxNy4yMzUzIDE3LjU3MzFDMTcuODM5MiAxNy41MTA1IDE4LjQyNTQgMTcuMzMyNCAxOC45NjIxIDE3LjA0ODJDMTkuMjU0NyAxNi44NTMgMTkuNDc1MSAxNi41NjY5IDE5LjU4OTQgMTYuMjM0MUMxOS43NjkzIDE1Ljc0MDggMTkuNjI5OCAxNS42MDI1IDE5LjU4NDQgMTUuNTYwMkMxOS4yMTA4IDE1LjMwNjggMTguNzc1OCAxNS4xNTg5IDE4LjMyNTMgMTUuMTMyQzE3LjYxMDggMTUuMDA1NyAxNi4zNzUgMTQuODg0NCAxNC42NTIgMTQuNzY5NUwxMy42NTI5IDE0LjcwNjNDMTEuOTQ0NiAxNC42MjczIDEwLjI0NjYgMTQuMzk4IDguNTc4NDUgMTQuMDIxMUM3LjQyMzY5IDEzLjc4NSA2LjMyNzM4IDEzLjMyMTUgNS4zNTMyOCAxMi42NTc1QzMuODAwNjYgMTEuNDg1OSAzLjQ1MjI3IDkuNjg5MDYgNC4zMTYzMSA3LjMxMThDNS4xMTAyOSA1LjEzMDMyIDYuODE0MzggMy40NDc3OSA5LjM4MTI2IDIuMzEwOTVDMTIuMzcxNyAxLjEwODgxIDE1LjU3NzkgMC41MzcxMDYgMTguNzk5MyAwLjYzMTU4M0MyMC41OTQ4IDAuNjA2MzY5IDIyLjM4ODIgMC43NjE4ODggMjQuMTUyNiAxLjA5NTc5QzI1LjQ0MTkgMS4zMjMwNCAyNi42NzIzIDEuODA3MTQgMjcuNzcxIDIuNTE5MzdDMjkuNjI3OCAzLjgyMzU4IDMwLjE4NDUgNS43NDA0MyAyOS40MjU5IDguMjEwNTNNMjkuMzYyOCA4LjQyNjUzSDIxLjU0ODVMMjEuNjk5NCA4LjAxNjAxQzIxLjkyNzIgNy4zOTUxNiAyMS43MzQxIDYuOTk0NzQgMjEuMDczOSA2LjcxNjg1QzE5LjcyOTkgNi4zMTQyNCAxOC4zMjYxIDYuMTQ4ODIgMTYuOTI1NCA2LjIyOEMxNS42ODg3IDYuMTc0NDEgMTQuNDUwNyA2LjI5NjY4IDEzLjI0ODMgNi41OTExNkMxMi45OTAyIDYuNjQ1ODYgMTIuNzQ3NiA2Ljc1NzMyIDEyLjUzNzkgNi45MTc0NkMxMi4zMjgyIDcuMDc3NiAxMi4xNTY3IDcuMjgyNDEgMTIuMDM1OSA3LjUxNzA2QzExLjkwOTYgNy44NjA2NCAxMS45MzQ5IDguMTMyODQgMTIuNDYxMyA4LjM0NTY5QzEyLjg1ODkgOC41MDYxMSAxMy45MDIyIDguNzM2NjQgMTYuNjE2NyA4LjkyMjk1TDE3Ljc5MzggOS4wMDg4NUMxOS4wODMzIDkuMTIgMTkuOTU4NyA5LjE5ODMyIDIwLjYzNCA5LjI3MjIxQzIxLjQwMDggOS4zNTM2OSAyMi4yMTE5IDkuNDc4MTEgMjMuMDQ3NSA5LjY0Mjk1QzIzLjc1NiA5Ljc3MTMgMjQuNDUxOCA5Ljk2MTUgMjUuMTI3MSAxMC4yMTE0QzI1LjY2MjEgMTAuNDI4NSAyNi4xNjc0IDEwLjcxMjUgMjYuNjMxMiAxMS4wNTY0QzI3LjA4NjQgMTEuMzc1NyAyNy40NDAyIDExLjgxOTIgMjcuNjUwNSAxMi4zMzQxQzI3Ljg0MTIgMTIuODcwNSAyNy45MjA5IDEzLjQ0MDIgMjcuODg0NiAxNC4wMDg0QzI3LjgzNjMgMTQuNzQyNSAyNy42NzggMTUuNDY1IDI3LjQxNSAxNi4xNTJDMjYuOTgzOSAxNy40MDI5IDI2LjI5MjMgMTguNTQ3OSAyNS4zODYgMTkuNTExM0MyNC40Nzk3IDIwLjQ3NDggMjMuMzc5MyAyMS4yMzQ3IDIyLjE1NzYgMjEuNzQwOEMyMC43NTAyIDIyLjMyNjQgMTkuMjc2NSAyMi43MzcgMTcuNzY5MiAyMi45NjM2QzE1LjkxODUgMjMuMjQ2OCAxNC4wNDgyIDIzLjM4MjEgMTIuMTc2IDIzLjM2ODRaTTIuNzgwMDkgMjAuOTE0MUwyLjk4NzExIDIxLjA0NjFDNC43NjY5NCAyMi4xODMgNy44NTgzIDIyLjc1NzcgMTIuMTc1NCAyMi43NTc3QzE2LjIxOTEgMjIuNzU3NyAxOS40OTY3IDIyLjIyNzIgMjEuOTEyNyAyMS4xNzg3QzIzLjA1MzMgMjAuNjk4NyAyNC4wODMxIDE5Ljk4OTMgMjQuOTM4NCAxOS4wOTQ1QzI1Ljc4MDQgMTguMTg0NiAyNi40MjcgMTcuMTExNiAyNi44MzgyIDE1Ljk0MTdDMjcuMDc5NCAxNS4zMTQzIDI3LjIyNTYgMTQuNjU0NCAyNy4yNzE4IDEzLjk4MzhDMjcuMzA0MyAxMy40OTkgMjcuMjM4NCAxMy4wMTI2IDI3LjA3OCAxMi41NTM5QzI2LjkwODggMTIuMTQ3NiAyNi42MjY2IDExLjc5ODUgMjYuMjY1MSAxMS41NDc4QzI1Ljg0MzQgMTEuMjM0OCAyNS4zODM4IDEwLjk3NjMgMjQuODk3NCAxMC43Nzg1QzI0LjI1NzMgMTAuNTQxNyAyMy41OTc4IDEwLjM2MTMgMjIuOTI2MyAxMC4yMzkyQzIyLjEwOSAxMC4wNzgxIDIxLjMxNSA5Ljk1NjIxIDIwLjU2NjUgOS44NzY2NEMxOS44OTc0IDkuODA1OSAxOS4wMjU4IDkuNzI1MDYgMTcuNzQxNCA5LjYxNDUzTDE2LjU3MTkgOS41MjkyN0MxNS4xMDUxIDkuNTAyMDUgMTMuNjQ3MyA5LjI5Mzc0IDEyLjIzMTUgOC45MDkwNkMxMi4wNjcxIDguODY3NCAxMS45MTM5IDguNzkwMTUgMTEuNzgyNiA4LjY4Mjc1QzExLjY1MTMgOC41NzUzNiAxMS41NDUyIDguNDQwNDQgMTEuNDcxNyA4LjI4NzUxQzExLjM5ODIgOC4xMzQ1OCAxMS4zNTkxIDcuOTY3MzcgMTEuMzU3MyA3Ljc5NzY5QzExLjM1NTQgNy42MjgwMSAxMS4zOTA4IDcuNDU5OTggMTEuNDYwOSA3LjMwNTQ4QzExLjYxMDIgNi45ODIzNiAxMS44MzEyIDYuNjk3NjMgMTIuMTA3MiA2LjQ3MzAyQzEyLjM4MzEgNi4yNDg0MiAxMi43MDY3IDYuMDg5ODcgMTMuMDUzMyA2LjAwOTQ4QzE0LjMxOCA1LjY5MjggMTUuNjIxNiA1LjU1OTg2IDE2LjkyNDEgNS42MTQ3NEMxOS4wMTc2IDUuNjE0NzQgMjAuNDUyMiA1Ljc5MDMyIDIxLjMxIDYuMTUxNThDMjEuNjYxIDYuMjQ5NDYgMjEuOTY0IDYuNDcyNjYgMjIuMTYxNyA2Ljc3ODk3QzIyLjM1OTQgNy4wODUyOCAyMi40MzgxIDcuNDUzNDYgMjIuMzgyOSA3LjgxMzlIMjguOTA3N0MyOS40OTQ3IDUuNzAxOSAyOS4wMDgxIDQuMTMxMTYgMjcuNDIyNiAzLjAxNzY5QzI1Ljc0MzggMS44Mzg1MyAyMi44NDMgMS4yNDA0MiAxOC44MDExIDEuMjQwNDJDMTUuNjY1NyAxLjE0NzUyIDEyLjU0NDggMS43MDIyMiA5LjYzMzA5IDIuODY5OUM4LjUyMDExIDMuMzQxNzEgNy41MDExNiA0LjAxMDI4IDYuNjI1MDUgNC44NDM1OEM1Ljg1NDgzIDUuNTk1MDggNS4yNjMzNiA2LjUxMDI5IDQuODk0NDQgNy41MjE0OEM0LjEyMTkxIDkuNjQ0MjEgNC4zOTM5NCAxMS4xNjUxIDUuNzI1NjYgMTIuMTY5OUM3LjExMDQgMTMuMjE1MiA5Ljc5MDI1IDEzLjg2MDYgMTMuNjkwNyAxNC4wODhMMTQuNjkyNCAxNC4xNTEyQzE2LjQzODggMTQuMjY4IDE3LjY5NiAxNC4zOTI0IDE4LjQzMTkgMTQuNTIxOUMxOS4wMDU5IDE0LjU2NjIgMTkuNTU1NCAxNC43NzMyIDIwLjAxNjEgMTUuMTE4N0MyMC4xNzIzIDE1LjI5NjggMjAuMjcwNSAxNS41MTg0IDIwLjI5NzUgMTUuNzUzOEMyMC4zMjQ2IDE1Ljk4OTIgMjAuMjc5MyAxNi4yMjczIDIwLjE2NzYgMTYuNDM2MkMyMC4wMTAxIDE2Ljg5MTYgMTkuNzA3NyAxNy4yODI4IDE5LjMwNjcgMTcuNTQ5N0MxOC42OTg0IDE3Ljg4NzcgMTguMDI4MiAxOC4wOTkzIDE3LjMzNjIgMTguMTcxOEMxNi4xMzI3IDE4LjM0MDkgMTQuOTE3OSAxOC40MTU4IDEzLjcwMjcgMTguMzk2QzEwLjcyNDMgMTguMzk2IDguOTY1MzQgMTcuOTUzOSA4LjMyNDEgMTcuMDM1QzguMjA0NDcgMTYuODYzMyA4LjEyMTA2IDE2LjY2OSA4LjA3ODk1IDE2LjQ2NEM4LjAzNjg1IDE2LjI1OSA4LjAzNjk0IDE2LjA0NzUgOC4wNzkyMSAxNS44NDI1SDEuNTU1NjdDMC44Nzg0NSAxOC4xNzU2IDEuMjgxNzUgMTkuODM4NSAyLjc4MDczIDIwLjkxNDFIMi43ODAwOVpNOTEuNTkwMSAyMi43OTQzSDcyLjU1MzVMNzUuNjQ5OSAxNC4yODM4TDkxLjU5MDEgMjIuNzk0M1pNNzMuNDI1NyAyMi4xODM2SDg5LjE0OTVMNzUuOTg1IDE1LjE1MzVMNzMuNDI1NyAyMi4xODM2Wk02My44NjQ0IDIyLjc5NDNINTMuNDk3OEw1My4yMDQ0IDcuODczOUw0Mi4wNTI2IDIyLjc5NDNIMzEuNjUxOUwzMi4zNTUgMS4xMzExNkgzOS45MTYyTDM5LjI5MDEgMTYuMzYxMUw1MC43OTc4IDEuMTAyNzRMNjAuNDgyOCA2LjE4Njk1TDYwLjc2MTEgMTYuMzc4N0w2NS44MDUyIDkuMDI5MDZMNzEuMzY3NSAxMS45OTQzTDYzLjg2NDQgMjIuNzk0M1pNNTQuMDk2OCAyMi4xODM2SDYzLjU0NTdMNzAuNDc0NSAxMi4yMTIyTDY2LjAwMDMgOS44MjY3NEw2MC4yMDMyIDE4LjI3NDFMNTkuODgzMiA2LjU2MDIyTDUxLjAyMTkgMS44MzAzMkwzOC42MDA5IDE4LjI5MTJMMzkuMjgxMiAxLjc0Mzc5SDMyLjk0NzdMMzIuMjg0NCAyMi4xODM2SDQxLjc1MTZMNTMuNzg1IDYuMDg0MDFMNTQuMDk2OCAyMi4xODM2WiIgZmlsbD0iI0VCRUNFRSIvPgo8cGF0aCBkPSJNMTE5LjcyOCAyMi44MDYzSDk3LjU2NTdMMTA1LjQzNyAxLjEzMjQySDEyNy41OThMMTI1LjQ5IDYuOTM2SDExMC44N0wxMTAuMDE2IDkuMjg3MzdIMTI0LjA1MUwxMjIuMTE0IDE0LjYyMDRIMTA4LjA3OUwxMDcuMjE1IDE3LjAwMzRIMTIxLjgzNUwxMTkuNzI4IDIyLjgwNjNaTTEzMC4wNzkgMjIuNzk0M0gxMjIuNTQ1TDEzMC40MyAxLjEzMjQySDE0Ny4xMTNDMTQ4LjI4NSAxLjEwMzEgMTQ5LjQ1MyAxLjI4NzM2IDE1MC41NTkgMS42NzYyMUMxNTEuNDU3IDEuOTk4NzkgMTUyLjIzNiAyLjU4NDczIDE1Mi43OTYgMy4zNTc0OEMxNTMuMzMzIDQuMTQ0NzEgMTUzLjYyMSA1LjA3NjE3IDE1My42MiA2LjAyOTY4QzE1My42MDkgNy4yMDM4NiAxNTMuMzg0IDguMzY2MTkgMTUyLjk1NSA5LjQ1OTE2QzE1Mi4xMjQgMTEuODY5NiAxNTAuNTU2IDEzLjk1NzQgMTQ4LjQ3NCAxNS40MjY5QzE0Ni4zODEgMTYuODY2MiAxNDMuODkyIDE3LjYxNjggMTQxLjM1MiAxNy41NzQzSDEzMS45ODFMMTMwLjA3OSAyMi43OTQzWk0xMzQuMzA3IDExLjE4NzhIMTQxLjgxNEMxNDIuNTg2IDExLjIyODIgMTQzLjM1NyAxMS4wODU2IDE0NC4wNjQgMTAuNzcxNkMxNDQuNjIgMTAuNDIyOSAxNDUuMDI3IDkuODgxMDkgMTQ1LjIwOSA5LjI1MDFDMTQ1LjM4IDguNzc5NTggMTQ1LjUyNCA4LjE2NTY4IDE0NS4yMjkgNy45MTM2OEMxNDUuMDM0IDcuNzQ2MzIgMTQ0LjU1MiA3LjU0NzM3IDE0My4zNTkgNy41NDczN0gxMzUuNjNMMTM0LjMwNyAxMS4xODc4Wk05NC43MjM3IDIyLjc5NTZIOTAuMzAxMkw3NS40NDY1IDE0Ljg2MjlMODAuNDM4OSAxLjEzMjQySDEwMi42MDFMMTAwLjQ5MyA2LjkyOTY4SDg1Ljg2NjhMODUuMDEzNSA5LjI4MTY4SDk5LjA0ODNMOTcuMTEwNyAxNC42MTQ3SDgzLjA3NThMODIuMjA2MSAxNi45OTc3SDk2LjgzMTdMOTQuNzIzNyAyMi43OTU2Wk03MS4wMjM0IDEyLjUwMDhMNjUuNDY0MyA5LjUzNjg0TDcxLjIzNzQgMS4xMzI0Mkg3OC45Mjk4TDcxLjAyMzQgMTIuNTAwOFpNNjAuNTA5MiA2Ljg5MDUyTDUwLjQ4MDIgMS41NDIzMkw1MC44MDc4IDEuMDc2ODRMNjAuMzUyNiAxLjEzMjQyTDYwLjUwOTIgNi44OTA1MloiIGZpbGw9IiNFQkVDRUUiLz4KPC9nPgo8ZGVmcz4KPGNsaXBQYXRoIGlkPSJjbGlwMF8zNThfMTQ1Ij4KPHJlY3Qgd2lkdGg9IjE1NCIgaGVpZ2h0PSIyNCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K" alt="Sweep">
+        <p>A global Web3 platform where entertainment, financial infrastructure and value creation converge. Built so that the people who generate activity are the ones who share in its value.</p>
+        <div class="socials">
+          <a href="https://x.com/sweepglobal" target="_blank" rel="noopener" title="X" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.5 8.6L23.3 22h-6.9l-5.4-7-6.2 7H1.5l8.1-9.2L1 2h7.1l4.9 6.5L18.9 2zm-2.4 18h1.9L7.6 4H5.6l10.9 16z"/></svg>
+          </a>
+          <a href="https://t.me/SweepGlobal_Chat" target="_blank" rel="noopener" title="Telegram" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3l-3.3 15.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9-8.1c.4-.3-.1-.5-.6-.2L6.4 13.5l-4.8-1.5c-1-.3-1-1 .2-1.5l18.7-7.2c.9-.3 1.6.2 1.4 1z"/></svg>
+          </a>
+          <a href="https://discord.gg/sweepglobal" target="_blank" rel="noopener" title="Discord" aria-label="Discord">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.3 5.3A17 17 0 0015 4l-.2.4a12 12 0 013.6 1.8A16 16 0 006 6.2 12 12 0 019.3 4.4L9 4a17 17 0 00-4.3 1.3C2 9.3 1.3 13.2 1.6 17a17 17 0 005.2 2.6l.6-1a11 11 0 01-1.7-.8l.4-.3a12 12 0 0010.1 0l.4.3c-.5.3-1.1.6-1.7.8l.6 1a17 17 0 005.2-2.6c.4-4.4-.7-8.3-3.1-11.7zM8.5 14.7c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm7 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sweepglobal" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@sweep.global" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.5a3 3 0 00-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 001 7.5 31 31 0 001 12a31 31 0 00.1 4.5 3 3 0 002.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 002.1-2.1A31 31 0 0023 12a31 31 0 00-.1-4.5zM10 15V9l5 3-5 3z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@sweepglobal" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.2 1.6 3.6 3.8 3.8v2.6c-1.3.1-2.5-.3-3.8-1v5.9c0 3.4-2.1 5.7-5.3 5.7-3 0-5.2-2.3-5.2-5.3 0-3.2 2.6-5.4 6-5v2.8c-.4-.1-.9-.2-1.3-.2-1.3 0-2.2.9-2.2 2.2 0 1.4.9 2.4 2.3 2.4 1.5 0 2.4-1.1 2.4-2.9V3h2.6z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a class="fl" href="#">Market</a><a class="fl" href="#">Sweepstake</a><a class="fl" href="#">Cases</a><a class="fl" href="#">Crash</a><a class="fl" href="#">Plincoin</a>
+      </div>
+      <div>
+        <h5>Token</h5>
+        <a class="fl" href="#whatis">What is SWEEP?</a><a class="fl" href="#">Token Sale</a><a class="fl" href="#airdrop">Airdrop</a><a class="fl" href="#">Docs</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a class="fl" href="#">Help Center</a><a class="fl" href="#">Terms of Use</a><a class="fl" href="#">Privacy Policy</a><a class="fl" href="mailto:info@sweep.finance">info@sweep.finance</a>
+      </div>
+    </div>
+    <div class="disclaimer" data-i18n="disc">
+      Sweep is a global Web3 platform operating without centralized custody or financial guarantees. Access may be restricted in some jurisdictions. Users are responsible for complying with their local laws and regulations. Digital assets are volatile and nothing here is financial advice — only commit funds you can afford to lose.
+    </div>
+    <div class="foot-base">
+      <span>Sweep © 2026 · <span data-i18n="f_building">Building the future of web3 economies</span></span>
+      <span class="num">v1.0</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= AUTH MODAL ======================= -->
+<div class="overlay" id="authModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="modal-close" id="authClose" aria-label="Close">✕</button>
+    <h2 class="modal-title" id="authTitle">Welcome to<br>Sweep</h2>
+
+    <button class="sso">
+      <svg class="ssoic" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+        <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7v3h3.9c2.3-2.1 3.5-5.2 3.5-8.9z"/>
+        <path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1C3.3 21.3 7.3 24 12 24z"/>
+        <path fill="#FBBC05" d="M5.3 14.3c-.2-.7-.4-1.5-.4-2.3s.1-1.6.4-2.3V6.6H1.3C.5 8.2 0 10 0 12s.5 3.8 1.3 5.4l4-3.1z"/>
+        <path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4C18 1.2 15.2 0 12 0 7.3 0 3.3 2.7 1.3 6.6l4 3.1c.9-2.9 3.6-5 6.7-5z"/>
+      </svg>
+      <span>Continue with Google</span>
+    </button>
+
+    <button class="sso">
+      <svg class="ssoic" viewBox="0 0 24 24" width="16" height="16" fill="#fff" aria-hidden="true">
+        <path d="M18.9 2H22l-7.5 8.6L23.3 22h-6.9l-5.4-7-6.2 7H1.5l8.1-9.2L1 2h7.1l4.9 6.5L18.9 2zm-2.4 18h1.9L7.6 4H5.6l10.9 16z"/>
+      </svg>
+      <span>Continue with X</span>
+    </button>
+
+    <div class="divider"><span>or</span></div>
+
+    <div class="field"><input type="email" placeholder="E-Mail Address" aria-label="E-Mail Address"></div>
+    <div class="field">
+      <input type="password" placeholder="Password" aria-label="Password" id="pwInput">
+      <button class="eye" id="pwEye" aria-label="Show password" type="button">👁</button>
+    </div>
+
+    <button class="signin">Sign In <span aria-hidden="true">↗</span></button>
+
+    <p class="mrow">Don't have an account? <a href="#">Sign up</a></p>
+    <p class="mrow">Forgot your password? <a href="#"><b>Forgot Password</b></a></p>
+
+    <div class="wallets">
+      <button class="wtile" title="WalletConnect" aria-label="WalletConnect" data-l="WC" style="--wc:#3B99FC">
+        <img src="https://sweep.finance/icons/login/wallet-connect-icon.svg" alt="" onerror="this.closest('.wtile').classList.add('imgfail')">
+      </button>
+      <button class="wtile" title="Trust Wallet" aria-label="Trust Wallet" data-l="TW" style="--wc:#3375BB">
+        <img src="https://sweep.finance/icons/login/trust-wallet-icon.svg" alt="" onerror="this.closest('.wtile').classList.add('imgfail')">
+      </button>
+      <button class="wtile" title="MetaMask" aria-label="MetaMask" data-l="MM" style="--wc:#E2761B">
+        <img src="https://sweep.finance/icons/login/metamask-icon.svg" alt="" onerror="this.closest('.wtile').classList.add('imgfail')">
+      </button>
+      <button class="wtile" title="Brave Wallet" aria-label="Brave Wallet" data-l="BR" style="--wc:#FB542B">
+        <img src="https://sweep.finance/icons/login/brave-icon.svg" alt="" onerror="this.closest('.wtile').classList.add('imgfail')">
+      </button>
+    </div>
+
+    <p class="legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sweep-demo
+    runtime: static
+    staticPublishPath: .
+    buildCommand: ""
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    routes:
+      - type: rewrite
+        source: /game
+        destination: /game.html
