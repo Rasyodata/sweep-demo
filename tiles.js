@@ -51,6 +51,13 @@
     });
   })();
 
+  // arcade tile Play → open the inline game on the homepage (no navigation away)
+  tiles.forEach(function (t) {
+    var nm = ((t.querySelector('b') || {}).textContent || '').trim();
+    if (nm === 'Watch & Earn') return;
+    t.addEventListener('click', function (e) { if (window.__openGame) { e.preventDefault(); window.__openGame(nm); } });
+  });
+
   function rand(a, b) { return a + Math.random() * (b - a); }
 
   function chart(g, c, W, H, tm) {
@@ -258,6 +265,7 @@
   }
 
   var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo, video: video, mining: mining, aviator: aviator, penalty: penalty, sicbo: sicbo, balloon: balloon, diamonds: diamonds };
+  try { window.__tileFX = FN; } catch (e) {}  // shared with tournaments.js for live card previews
 
   function render(g, tm) {
     var c = g.ctx, W = g.W, H = g.H;

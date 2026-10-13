@@ -653,6 +653,10 @@
   .tcard-h span{font-family:var(--mono); font-size:10px; color:var(--faint)}
   .tcard-live{display:inline-flex; align-items:center; gap:4px; font-family:var(--mono); font-size:8px; font-weight:800; letter-spacing:.08em; color:#fff; background:rgba(255,84,112,.2); border:1px solid rgba(255,84,112,.5); padding:2px 6px; border-radius:10px}
   .tcard-live i{width:5px; height:5px; border-radius:50%; background:#ff5470; animation:lfBlink 1.1s step-end infinite}
+  .tcv-wrap{position:relative; border-radius:10px; overflow:hidden; border:1px solid var(--line)}
+  .tcv{width:100%; height:auto; display:block; background:#0c1016}
+  .tcv-tag{position:absolute; top:6px; right:6px; display:inline-flex; align-items:center; gap:4px; font-family:var(--mono); font-size:7.5px; font-weight:800; letter-spacing:.08em; color:#fff; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.2); padding:2px 5px; border-radius:8px}
+  .tcv-tag i{width:5px; height:5px; border-radius:50%; background:#ff5470; animation:lfBlink 1.1s step-end infinite}
   .tcard-prize{display:flex; justify-content:space-between; align-items:baseline; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:9px 12px}
   .tcard-prize span{font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:var(--faint)}
   .tcard-prize b{font-family:var(--mono); font-size:20px; font-weight:800; color:var(--gold); font-variant-numeric:tabular-nums}
@@ -694,6 +698,31 @@
     .lb-head,.lb-row{grid-template-columns:34px 1fr 80px 80px; gap:8px; padding:10px 12px; font-size:11.5px}
     .lb-head span:nth-child(3),.lb-row .lb-g{display:none}
   }
+
+  /* ===== Inline game modal ===== */
+  .gm-ov{position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:18px; background:rgba(5,6,10,.8); backdrop-filter:blur(4px)}
+  .gm-ov[hidden]{display:none}
+  .gm-card{width:min(680px,100%); background:var(--panel-solid); border:1px solid var(--line-2); border-radius:18px; overflow:hidden; box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+  .gm-head{display:flex; align-items:center; gap:10px; padding:13px 16px; border-bottom:1px solid var(--line)}
+  .gm-ic{font-size:18px; line-height:1}
+  .gm-head b{font-size:15px; flex:1; font-family:var(--mono)}
+  .gm-live{display:inline-flex; align-items:center; gap:4px; font-family:var(--mono); font-size:8px; font-weight:800; letter-spacing:.08em; color:#fff; background:rgba(255,84,112,.2); border:1px solid rgba(255,84,112,.5); padding:2px 6px; border-radius:10px}
+  .gm-live i{width:5px; height:5px; border-radius:50%; background:#ff5470; animation:lfBlink 1.1s step-end infinite}
+  .gm-x{background:none; border:none; color:var(--muted); font-size:17px; cursor:pointer; width:28px; height:28px; border-radius:7px}
+  .gm-x:hover{background:var(--panel-2); color:var(--ink)}
+  .gm-stage{position:relative}
+  #gmCanvas{display:block; width:100%; height:auto; background:#0c1016; cursor:pointer; touch-action:manipulation}
+  .gm-hud{position:absolute; top:0; left:0; right:0; display:flex; gap:14px; padding:11px 14px; pointer-events:none; background:linear-gradient(180deg,rgba(8,10,14,.7),transparent)}
+  .gm-stat{font-family:var(--mono); font-size:11px; color:var(--faint)}
+  .gm-stat b{color:var(--ink); font-size:14px; font-variant-numeric:tabular-nums}
+  .gm-stat b.gold{color:var(--gold)}
+  .gm-screen{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; gap:4px; background:radial-gradient(circle at 50% 40%,rgba(16,19,26,.82),rgba(10,12,16,.95))}
+  .gm-screen[hidden]{display:none}
+  .gm-screen h3{font-size:20px}
+  .gm-screen p{color:var(--muted); font-size:13px; max-width:380px; margin:4px 0 14px; line-height:1.5}
+  .gm-emoji{font-size:40px}
+  .gm-btns{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+  @media(max-width:560px){ .gm-screen h3{font-size:17px} .gm-btns .btn{width:100%} }
 
   /* ===== SWEEP Catch mini-game ===== */
   .catch-sec{padding-top:26px}

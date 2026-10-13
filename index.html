@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sweep — Building the future of web3 economies</title>
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
 <!-- ======================= HEADER ======================= -->
@@ -624,13 +624,48 @@
     <p class="legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </div>
-<script src="app.js?v=12"></script>
-<script src="catch.js?v=12"></script>
-<script src="bounty.js?v=12"></script>
-<script src="livefeed.js?v=12"></script>
-<script src="arcade.js?v=12"></script>
-<script src="tiles.js?v=12"></script>
-<script src="spin.js?v=12"></script>
-<script src="tournaments.js?v=12"></script>
+<!-- ======================= INLINE GAME MODAL ======================= -->
+<div class="gm-ov" id="gameModal" hidden>
+  <div class="gm-card">
+    <div class="gm-head">
+      <span class="gm-ic" id="gmIc">🎮</span>
+      <b id="gmTitle">Playing</b>
+      <span class="gm-live"><i></i> LIVE</span>
+      <button class="gm-x" id="gmClose" aria-label="Close">✕</button>
+    </div>
+    <div class="gm-stage">
+      <canvas id="gmCanvas" width="640" height="360" aria-label="Mini-game"></canvas>
+      <div class="gm-hud">
+        <span class="gm-stat">SCORE <b id="gmScore">0</b></span>
+        <span class="gm-stat">EARNED <b id="gmEarn" class="gold">0.00</b></span>
+        <span class="gm-stat">TIME <b id="gmTime">25</b></span>
+      </div>
+      <div class="gm-screen" id="gmStart">
+        <h3 id="gmStartT">Tap the falling $SWEEP!</h3>
+        <p>Tap coins (+10) &amp; gems (+30) before they drop — dodge the bombs. You keep every $SWEEP you earn.</p>
+        <button class="btn gold" id="gmPlay">▶ Start</button>
+      </div>
+      <div class="gm-screen" id="gmOver" hidden>
+        <div class="gm-emoji" id="gmEmoji">🎉</div>
+        <h3>You won <b class="gold" id="gmWon">0.00</b> $SWEEP!</h3>
+        <p id="gmOverMsg">Added straight to your demo balance.</p>
+        <div class="gm-btns">
+          <button class="btn gold" id="gmAgain">↻ Play again</button>
+          <button class="btn ghost" id="gmClose2">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js?v=13"></script>
+<script src="catch.js?v=13"></script>
+<script src="bounty.js?v=13"></script>
+<script src="livefeed.js?v=13"></script>
+<script src="arcade.js?v=13"></script>
+<script src="tiles.js?v=13"></script>
+<script src="gamemodal.js?v=13"></script>
+<script src="spin.js?v=13"></script>
+<script src="tournaments.js?v=13"></script>
 </body>
 </html>

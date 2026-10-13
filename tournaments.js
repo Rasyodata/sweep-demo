@@ -14,14 +14,14 @@
 
   // ---------- Tournaments ----------
   var T = [
-    { ic: '🚀', name: 'Crash Masters', sub: 'Elimination · every 10 min', prize: 25000, joined: 3142, cap: 5000, ends: 2 * 3600 + 14 * 60 + 33, leaders: [['CryptoWhale', 48210], ['NeonTrader', 41980], ['VaultRunner', 39640]] },
-    { ic: '💣', name: 'Mines Mayhem', sub: 'Survival · best streak', prize: 12000, joined: 1890, cap: 3000, ends: 1 * 3600 + 48 * 60 + 10, leaders: [['PixelPunter', 22140], ['LunaFX', 20870], ['ZenTrader', 19030]] },
-    { ic: '✈️', name: 'Aviator League', sub: 'Highest multiplier wins', prize: 40000, joined: 4201, cap: 6000, ends: 5 * 3600 + 32 * 60, leaders: [['AstroDegen', 91200], ['SweepKing', 88450], ['CryptoWhale', 84110]] },
-    { ic: '🎡', name: 'Daily Spin Cup', sub: 'Most rewards claimed', prize: 8000, joined: 2560, cap: 4000, ends: 42 * 60 + 15, leaders: [['SweepKing', 15600], ['LunaFX', 14320], ['MoonMuse', 13780]] }
+    { ic: '🚀', ty: 'chart', name: 'Crash Masters', sub: 'Elimination · every 10 min', prize: 25000, joined: 3142, cap: 5000, ends: 2 * 3600 + 14 * 60 + 33, leaders: [['CryptoWhale', 48210], ['NeonTrader', 41980], ['VaultRunner', 39640]] },
+    { ic: '💣', ty: 'grid', name: 'Mines Mayhem', sub: 'Survival · best streak', prize: 12000, joined: 1890, cap: 3000, ends: 1 * 3600 + 48 * 60 + 10, leaders: [['PixelPunter', 22140], ['LunaFX', 20870], ['ZenTrader', 19030]] },
+    { ic: '✈️', ty: 'aviator', name: 'Aviator League', sub: 'Highest multiplier wins', prize: 40000, joined: 4201, cap: 6000, ends: 5 * 3600 + 32 * 60, leaders: [['AstroDegen', 91200], ['SweepKing', 88450], ['CryptoWhale', 84110]] },
+    { ic: '🎡', ty: 'wheel', name: 'Daily Spin Cup', sub: 'Most rewards claimed', prize: 8000, joined: 2560, cap: 4000, ends: 42 * 60 + 15, leaders: [['SweepKing', 15600], ['LunaFX', 14320], ['MoonMuse', 13780]] }
   ];
 
   if (grid) {
-    T.forEach(function (t) {
+    T.forEach(function (t, idx) {
       var pct = Math.min(100, Math.round(t.joined / t.cap * 100));
       var lb = t.leaders.map(function (l, j) {
         return '<div class="tlb-row"><span class="r r' + (j + 1) + '">' + (j + 1) + '</span><span class="nm">' + l[0] + '</span><span class="pts" data-pts>' + nf(l[1]) + '</span></div>';
@@ -29,6 +29,7 @@
       var el = document.createElement('div'); el.className = 'tcard';
       el.innerHTML =
         '<div class="tcard-top"><span class="tcard-ic">' + t.ic + '</span><div class="tcard-h"><b>' + t.name + '</b><span>' + t.sub + '</span></div><span class="tcard-live"><i></i>LIVE</span></div>'
+        + '<div class="tcv-wrap"><canvas class="tcv" width="300" height="60" data-t="' + t.ty + '" data-seed="' + (idx * 17.3) + '" aria-hidden="true"></canvas><span class="tcv-tag"><i></i>LIVE NOW</span></div>'
         + '<div class="tcard-prize"><span>PRIZE POOL</span><b>$' + nf(t.prize) + '</b></div>'
         + '<div class="tcard-bar"><i style="width:' + pct + '%"></i></div>'
         + '<div class="tcard-pl"><b data-joined>' + nf(t.joined) + '</b> / ' + nf(t.cap) + ' players</div>'
@@ -41,6 +42,23 @@
       });
     });
   }
+
+  // ---------- live game-preview animation on each card ----------
+  (function () {
+    var cvs = grid ? grid.querySelectorAll('.tcv') : [];
+    if (!cvs.length) return;
+    var FX = window.__tileFX || {};
+    var insts = [];
+    for (var i = 0; i < cvs.length; i++) insts.push({ ctx: cvs[i].getContext('2d'), W: cvs[i].width, H: cvs[i].height, t: cvs[i].getAttribute('data-t'), seed: parseFloat(cvs[i].getAttribute('data-seed')) || 0 });
+    function draw(g, ts) {
+      var c = g.ctx, W = g.W, H = g.H; c.clearRect(0, 0, W, H);
+      var bg = c.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, '#0c1016'); bg.addColorStop(1, '#0a0d12'); c.fillStyle = bg; c.fillRect(0, 0, W, H);
+      var fn = FX[g.t]; if (fn) fn({ seed: g.seed }, c, W, H, ts);
+    }
+    if (reduce) { for (var j = 0; j < insts.length; j++) draw(insts[j], 700); return; }
+    function frame(ts) { for (var k = 0; k < insts.length; k++) draw(insts[k], ts); requestAnimationFrame(frame); }
+    requestAnimationFrame(frame);
+  })();
 
   // ---------- Weekly Leaderboard ----------
   var REW = [25000, 12000, 8000, 5000, 3000, 2000, 1500, 1000];
