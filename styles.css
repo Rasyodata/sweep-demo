@@ -524,6 +524,19 @@
   .gtile:hover{border-color:var(--gold); transform:translateY(-3px); background:var(--panel-2)}
   .gtile .gt-ic{font-size:36px} .gtile .gt-n{font-weight:700; color:var(--ink); font-size:15px} .gtile .gt-play{font-size:12px; color:var(--gold); font-family:var(--mono); font-weight:700}
 
+  /* ===== Header miner animation ===== */
+  .miner{display:inline-flex; align-items:center; gap:8px; background:var(--panel-2); border:1px solid var(--line-2); border-radius:30px; padding:5px 13px 5px 9px; margin-left:2px; position:relative; overflow:hidden; cursor:default; flex-shrink:0}
+  .miner::before{content:""; position:absolute; inset:0; background:radial-gradient(circle at 18% 60%, rgba(245,182,61,.18), transparent 62%)}
+  .miner-pick{font-size:16px; display:inline-block; transform-origin:72% 72%; animation:pickswing .82s ease-in-out infinite; position:relative; z-index:1}
+  @keyframes pickswing{0%,100%{transform:rotate(-40deg)} 44%{transform:rotate(14deg)} 56%{transform:rotate(9deg)}}
+  .miner-txt{display:flex; flex-direction:column; line-height:1.08; position:relative; z-index:1}
+  .miner-lbl{font-family:var(--mono); font-size:8px; letter-spacing:.16em; color:var(--faint)}
+  .miner-num{font-family:var(--mono); font-weight:800; font-size:12px; color:var(--gold); font-variant-numeric:tabular-nums}
+  .miner-spark{position:relative; z-index:1; width:7px; height:14px}
+  .miner-spark.pop::after{content:"✦"; position:absolute; left:-2px; bottom:0; color:var(--gold); font-size:11px; animation:sparkpop .55s ease-out forwards}
+  @keyframes sparkpop{0%{opacity:0; transform:translateY(2px) scale(.4)} 30%{opacity:1} 100%{opacity:0; transform:translateY(-11px) scale(1.2)}}
+  @media(max-width:960px){ .miner{display:none} }
+
   /* ===== Sweep Perp banner ===== */
   .perp-sec{padding:16px 0 6px}
   .perp-banner{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center; text-decoration:none; position:relative; overflow:hidden;

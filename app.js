@@ -9,6 +9,27 @@
     mk('icon', 'favicon-dark.png', {type:'image/png', media:'(prefers-color-scheme: light)'});
     mk('apple-touch-icon', 'favicon-white.png');
   })();
+
+  // ---- Header miner animation (live community mining counter) ----
+  (function(){
+    var search = document.querySelector('.search');
+    if(!search || document.getElementById('miner')) return;
+    var m = document.createElement('div'); m.className = 'miner'; m.id = 'miner'; m.title = 'SWEEP mined by the community';
+    m.innerHTML = '<span class="miner-pick">⛏️</span><div class="miner-txt"><span class="miner-lbl">MINING</span><span class="miner-num" id="minerNum">0</span></div><span class="miner-spark" id="minerSpark"></span>';
+    search.insertAdjacentElement('afterend', m);
+    var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var n = 1248000 + Math.floor(Math.random() * 60000);
+    var el = document.getElementById('minerNum');
+    function render(){ el.textContent = n.toLocaleString('en-US'); }
+    render();
+    if(!rm){
+      setInterval(function(){
+        n += 1 + Math.floor(Math.random() * 4); render();
+        var sp = document.getElementById('minerSpark');
+        if(sp){ sp.classList.remove('pop'); void sp.offsetWidth; sp.classList.add('pop'); }
+      }, 820);
+    }
+  })();
   // Build the scrolling game nav (duplicated for seamless loop)
   var games = ["Market","Sport","Trade","Sweepstake","Cases","Upgrade","Changer","Click","Boomb","Booster","Plincoin","Flip","Tower","Fighter","Racing","Card","Crash"];
   var hot = {"Crash":1,"Cases":1,"Plincoin":1,"Sweepstake":1};
