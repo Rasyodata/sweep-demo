@@ -670,13 +670,21 @@
   .cg-over-btns{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
   .cg-over-btns .btn{min-width:150px; text-decoration:none}
   @media(max-width:560px){
-    .cg-hud{gap:6px; padding:9px 10px}
+    .cg-hud{gap:5px; padding:8px 9px}
     .cg-stat{min-width:0}
-    .cg-k{font-size:7.5px; letter-spacing:.08em}
-    .cg-v{font-size:12.5px}
-    .cg-card{padding:22px 16px}
-    .cg-card h3{font-size:18px}
-    #cgCanvas{cursor:auto}
+    .cg-k{font-size:7px; letter-spacing:.05em}
+    .cg-v{font-size:11.5px}
+    #cgCanvas,#btCanvas{cursor:auto}
+    /* overlay cards flow in-document (never clipped by the short landscape canvas) */
+    .cg-ov{position:static; inset:auto; background:var(--panel-2); backdrop-filter:none; border-top:1px solid var(--line-2); padding:0}
+    .cg-card{width:100%; border:none; background:transparent; padding:16px 15px 18px}
+    .cg-card h3{font-size:16.5px; margin:2px 0 7px}
+    .cg-card p{font-size:12px; line-height:1.5; margin-bottom:13px}
+    .cg-legend{gap:7px 12px; font-size:10.5px; margin-bottom:11px}
+    .cg-tip{font-size:9px; margin-top:9px}
+    .cg-over-emoji{font-size:32px}
+    .cg-over-stats{gap:8px; margin:2px 0 14px}
+    .cg-over-btns{gap:8px}
     .cg-over-btns .btn,.cg-card .btn{width:100%; min-width:0}
   }
 

@@ -239,7 +239,7 @@
     "Catch falling $SWEEP, gems and jackpots — dodge the bombs. No sign-up: play right here and every run tops up your demo balance.":"Düşen $SWEEP'leri, mücevherleri ve jackpot'ları yakala — bombalardan kaç. Kayıt yok: tam burada oyna, her tur demo bakiyeni artırır.",
     "SCORE":"SKOR", "EARNED $SWEEP":"KAZANILAN $SWEEP", "COMBO":"KOMBO", "LIVES":"CAN",
     "Ready to catch some $SWEEP?":"Biraz $SWEEP yakalamaya hazır mısın?",
-    "Move your paddle to scoop coins, gems and jackpots. Missing is fine — a bomb costs a life. Three lives, then we bank your reward.":"Coin, mücevher ve jackpot'ları toplamak için paleti hareket ettir. Kaçırmak sorun değil — bomba bir cana mal olur. Üç can, sonra ödülünü hesabına geçiririz.",
+    "Move your paddle to scoop coins, gems and jackpots. Missing is fine — a bomb costs a life. Five lives, then we bank your reward.":"Coin, mücevher ve jackpot'ları toplamak için paleti hareket ettir. Kaçırmak sorun değil — bomba bir cana mal olur. Beş can, sonra ödülünü hesabına geçiririz.",
     "▶ Play now":"▶ Hemen oyna", "↻ Play again":"↻ Tekrar oyna", "Explore all games →":"Tüm oyunları keşfet →",
     "Desktop: move the mouse · Mobile: drag your finger":"Masaüstü: fareyi hareket ettir · Mobil: parmağını kaydır",
     "Score":"Skor", "Best combo":"En iyi kombo", "Balance":"Bakiye",
