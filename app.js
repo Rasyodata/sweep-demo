@@ -249,7 +249,12 @@
     "Move to aim, click or tap to fire. Hit the masked bots and bombers — but shoot a HODLer and you lose a life. Let a bomber escape and it costs you too. Reload is automatic.":"Nişan almak için hareket et, ateş için tıkla veya dokun. Maskeli botları ve bombacıları vur — ama bir HODLer'a ateş edersen can kaybedersin. Bombacı kaçarsa da sana pahalıya patlar. Şarjör otomatik dolar.",
     "▶ Start the hunt":"▶ Ava başla", "↻ Hunt again":"↻ Tekrar avlan",
     "Desktop: aim with the mouse, click to shoot · Mobile: tap targets":"Masaüstü: fareyle nişan al, ateş için tıkla · Mobil: hedeflere dokun",
-    "Accuracy":"İsabet"
+    "Accuracy":"İsabet",
+    "Multiplayer · Live":"Çok Oyunculu · Canlı", "Live Tournaments":"Canlı Turnuvalar",
+    "Go head-to-head with thousands of players for the prize pool. Climb the live leaderboard — the top ranks split the $SWEEP.":"Binlerce oyuncuyla ödül havuzu için kozlarını paylaş. Canlı liderlik tablosunda yüksel — en üst sıralar $SWEEP'i paylaşır.",
+    "Rewards · Weekly":"Ödüller · Haftalık", "Weekly Leaderboard":"Haftalık Liderlik",
+    "The highest scorers across every game share a $SWEEP prize pool each week. Here's who's winning right now.":"Tüm oyunlarda en yüksek skoru yapanlar her hafta bir $SWEEP ödül havuzunu paylaşır. İşte şu an kazananlar.",
+    "PRIZE POOL":"ÖDÜL HAVUZU", "RANK":"SIRA", "PLAYER":"OYUNCU", "GAMES":"OYUN", "REWARD":"ÖDÜL"
   };
   var PH = { "Search people, news, pages…":"Kişi, haber, sayfa ara…", "E-Mail Address":"E-posta Adresi", "Password":"Şifre" };
   var HTMLTR = [

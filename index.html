@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sweep — Building the future of web3 economies</title>
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 <!-- ======================= HEADER ======================= -->
@@ -175,6 +175,40 @@
     </div>
   </a>
 </div>
+
+<!-- ======================= LIVE TOURNAMENTS ======================= -->
+<section class="tourn-sec" id="tournaments">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Multiplayer · Live</div>
+        <h2 style="margin-top:10px">Live Tournaments</h2>
+        <p class="sub">Go head-to-head with thousands of players for the prize pool. Climb the live leaderboard — the top ranks split the $SWEEP.</p>
+      </div>
+      <a href="game.html" class="viewall">All games →</a>
+    </div>
+    <div class="tourn-grid" id="tournGrid"></div>
+  </div>
+</section>
+
+<!-- ======================= WEEKLY LEADERBOARD ======================= -->
+<section class="lb-sec" id="leaderboard">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Rewards · Weekly</div>
+        <h2 style="margin-top:10px">Weekly Leaderboard</h2>
+        <p class="sub">The highest scorers across every game share a $SWEEP prize pool each week. Here's who's winning right now.</p>
+      </div>
+      <div class="lb-pool"><span>PRIZE POOL</span><b>$100,000</b></div>
+    </div>
+    <div class="lb-table">
+      <div class="lb-head"><span>RANK</span><span>PLAYER</span><span>GAMES</span><span>SCORE</span><span>REWARD</span></div>
+      <div id="lbBody"></div>
+    </div>
+    <div class="lb-reset" id="lbReset">Resets in …</div>
+  </div>
+</section>
 
 <!-- ======================= STATS BAR ======================= -->
 <section style="padding:42px 0 0">
@@ -590,12 +624,13 @@
     <p class="legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </div>
-<script src="app.js?v=11"></script>
-<script src="catch.js?v=11"></script>
-<script src="bounty.js?v=11"></script>
-<script src="livefeed.js?v=11"></script>
-<script src="arcade.js?v=11"></script>
-<script src="tiles.js?v=11"></script>
-<script src="spin.js?v=11"></script>
+<script src="app.js?v=12"></script>
+<script src="catch.js?v=12"></script>
+<script src="bounty.js?v=12"></script>
+<script src="livefeed.js?v=12"></script>
+<script src="arcade.js?v=12"></script>
+<script src="tiles.js?v=12"></script>
+<script src="spin.js?v=12"></script>
+<script src="tournaments.js?v=12"></script>
 </body>
 </html>
