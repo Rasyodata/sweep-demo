@@ -61,6 +61,13 @@
   .gamenav .track{display:flex; gap:8px; padding:11px 0; width:max-content; animation:slide 40s linear infinite}
   .gamenav:hover .track{animation-play-state:paused}
   @keyframes slide{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+  .navpill{display:inline-flex; align-items:center; gap:7px; padding:6px 15px 6px 7px; border:1px solid var(--line); background:var(--panel-2); color:var(--ink); border-radius:10px}
+  .navpill:hover{border-color:var(--gold); color:var(--gold)}
+  .navcv{width:48px; height:20px; border-radius:4px; background:rgba(255,255,255,.04); border:1px solid var(--line); flex-shrink:0; display:block}
+  .np-ic{font-size:12px; line-height:1}
+  .np-t{white-space:nowrap; font-size:12.5px}
+  .perp-pill.navpill{border-color:rgba(124,92,255,.5); background:linear-gradient(180deg, rgba(124,92,255,.14), var(--panel-2)); color:var(--violet)}
+  .perp-pill.navpill .navcv{border-color:rgba(124,92,255,.45)}
   .pill{font-family:var(--sans); font-size:13px; font-weight:600; color:var(--muted); padding:7px 15px; border-radius:9px; border:1px solid transparent; white-space:nowrap; transition:.15s}
   .pill:hover{color:var(--ink); background:var(--panel-2); border-color:var(--line)}
   .pill.hot{color:var(--gold)}

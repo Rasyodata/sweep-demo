@@ -36,23 +36,42 @@
   var track = document.getElementById("gtrack");
   var html = "";
   var navItems = [
-    {t:'🎮 Arcade', h:'game.html'},
-    {t:'📺 Watch & Earn', h:'#whatis'},
-    {t:'⛏️ Mining', h:'game.html'},
-    {t:'🎰 Casino', h:'game.html'},
-    {t:'⚽ Sports', h:'game.html'},
-    {t:'📈 Markets', h:'game.html'},
-    {t:'🎁 Airdrop', h:'airdrop.html'},
-    {t:'🏆 Leaderboard', h:'airdrop.html'}
+    {t:'Markets Dashboard', ic:'📊', ty:'candles', h:'game.html'},
+    {t:'Trading Analytics', ic:'💹', ty:'line', h:'game.html'},
+    {t:'Liquidity Pools', ic:'💧', ty:'bars', h:'game.html'},
+    {t:'Marketing', ic:'📣', ty:'growth', h:'airdrop.html'},
+    {t:'Sweep Perp', ic:'⚡', ty:'perp', perp:true}
   ];
-  var hotNav = {'🎮 Arcade':1,'📺 Watch & Earn':1,'⛏️ Mining':1};
-  for(var r=0;r<2;r++){
-    html += '<a class="pill perp-pill" target="_blank" rel="noopener">⚡ Sweep Perp</a>';
-    for(var i=0;i<navItems.length;i++){
-      html += '<a class="pill navpill'+(hotNav[navItems[i].t]?' hot':'')+'" href="'+navItems[i].h+'">'+navItems[i].t+'</a>';
+  function navPill(it){
+    return '<a class="pill navpill'+(it.perp?' perp-pill':'')+'"'+(it.perp?' target="_blank" rel="noopener"':' href="'+it.h+'"')+'>'
+      + '<canvas class="navcv" width="48" height="20" data-t="'+it.ty+'" aria-hidden="true"></canvas>'
+      + '<span class="np-ic">'+it.ic+'</span><span class="np-t">'+it.t+'</span></a>';
+  }
+  for(var r=0;r<2;r++){            // two identical halves for the -50% seamless loop
+    for(var rep=0;rep<2;rep++){    // repeat items so each half is wider than the viewport
+      for(var i=0;i<navItems.length;i++) html += navPill(navItems[i]);
     }
   }
   track.innerHTML = html;
+
+  // ---- live mini-chart animations beside each nav item ----
+  (function(){
+    var cvs = track.querySelectorAll('.navcv'); if(!cvs.length) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var GLD='#f5b63d', GRN='#35E39B', RED='#FF5C6C', VIO='#7C5CFF';
+    var insts=[];
+    for(var k=0;k<cvs.length;k++) insts.push({c:cvs[k].getContext('2d'),W:cvs[k].width,H:cvs[k].height,t:cvs[k].getAttribute('data-t'),s:k*11.3});
+    function candles(g,tm){var c=g.c,W=g.W,H=g.H,n=6,bw=W/n;for(var i=0;i<n;i++){var ph=tm*0.003+g.s+i*0.7,o=H*0.5+Math.sin(ph)*H*0.3,cl=H*0.5+Math.sin(ph+0.7)*H*0.3,up=cl<o,x=i*bw+bw/2;c.strokeStyle=up?GRN:RED;c.fillStyle=up?GRN:RED;c.beginPath();c.moveTo(x,Math.min(o,cl)-3);c.lineTo(x,Math.max(o,cl)+3);c.stroke();c.fillRect(x-bw*0.3,Math.min(o,cl),bw*0.6,Math.abs(o-cl)||1);}}
+    function line(g,tm){var c=g.c,W=g.W,H=g.H,n=14;c.strokeStyle=GRN;c.lineWidth=1.5;c.beginPath();for(var i=0;i<n;i++){var y=H*0.72-(Math.sin(tm*0.003+g.s+i*0.5)*0.5+0.5)*H*0.5*(0.4+i/n);i?c.lineTo(i*W/(n-1),y):c.moveTo(0,y);}c.stroke();}
+    function bars(g,tm){var c=g.c,W=g.W,H=g.H,n=5,bw=W/n;for(var i=0;i<n;i++){var h=(Math.sin(tm*0.0035+g.s+i*0.8)*0.5+0.5)*H*0.8+2;c.fillStyle=GLD;c.fillRect(i*bw+1,H-h,bw-2,h);}}
+    function growth(g,tm){var c=g.c,W=g.W,H=g.H,n=5,bw=W/n,p=(tm*0.0012+g.s)%1.3;for(var i=0;i<n;i++){var h=((i+1)/n)*H*0.9*(0.4+0.6*Math.max(0,Math.min(1,p*n-i)));if(h<2)h=0;c.fillStyle=GRN;c.fillRect(i*bw+1,H-h,bw-2,h);}}
+    function perp(g,tm){var c=g.c,W=g.W,H=g.H,n=14;c.strokeStyle=VIO;c.lineWidth=1.5;c.beginPath();for(var i=0;i<n;i++){var y=H*0.5+Math.sin(tm*0.004+g.s+i*0.9)*H*0.35;i?c.lineTo(i*W/(n-1),y):c.moveTo(0,y);}c.stroke();}
+    var FN={candles:candles,line:line,bars:bars,growth:growth,perp:perp};
+    function render(g,tm){g.c.clearRect(0,0,g.W,g.H);(FN[g.t]||line)(g,tm);}
+    if(reduce){for(var j=0;j<insts.length;j++)render(insts[j],600);return;}
+    function frame(ts){for(var j=0;j<insts.length;j++)render(insts[j],ts);requestAnimationFrame(frame);}
+    requestAnimationFrame(frame);
+  })();
 
   // Buy tabs toggle (visual)
   var tabBtns = document.querySelectorAll('.tabs button');
