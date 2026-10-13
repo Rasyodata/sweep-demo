@@ -74,6 +74,10 @@
       <div><div class="k">24h High</div><div class="v up">$0.0441</div></div>
       <div><div class="k">24h Low</div><div class="v down">$0.0397</div></div>
       <div><div class="k">Market Cap</div><div class="v">$61.4M</div></div>
+      <a class="hud-play" href="#catchGame" id="heroPlay">
+        <div class="k">Play &amp; Earn</div>
+        <div class="v"><span class="hp-ic">▶</span> SWEEP Catch</div>
+      </a>
     </div>
   </div>
 </div>
@@ -140,6 +144,63 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SWEEP CATCH (inline mini-game) ======================= -->
+<section class="catch-sec" id="catchGame">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Play &amp; Earn · Live</div>
+        <h2 style="margin-top:10px">SWEEP Catch</h2>
+        <p class="sub">Catch falling $SWEEP, gems and jackpots — dodge the bombs. No sign-up: play right here and every run tops up your demo balance.</p>
+      </div>
+      <a href="game.html" class="viewall">All games →</a>
+    </div>
+
+    <div class="cg-stage" id="cgStage">
+      <canvas id="cgCanvas" width="900" height="430" aria-label="SWEEP Catch mini-game"></canvas>
+
+      <div class="cg-hud">
+        <div class="cg-stat"><span class="cg-k">SCORE</span><span class="cg-v" id="cgScore">0</span></div>
+        <div class="cg-stat"><span class="cg-k">EARNED $SWEEP</span><span class="cg-v gold" id="cgEarn">0.00</span></div>
+        <div class="cg-stat"><span class="cg-k">COMBO</span><span class="cg-v" id="cgCombo">×1</span></div>
+        <div class="cg-stat"><span class="cg-k">LIVES</span><span class="cg-v" id="cgLives">♥ ♥ ♥</span></div>
+      </div>
+
+      <div class="cg-ov" id="cgStart">
+        <div class="cg-card">
+          <div class="cg-legend">
+            <span><b style="color:#f5b63d">●</b> +10</span>
+            <span><b style="color:#39d98a">◆</b> +50</span>
+            <span><b style="color:#7c5cff">★</b> +150</span>
+            <span><b style="color:#ff5470">✸</b> −1 life</span>
+          </div>
+          <h3>Ready to catch some $SWEEP?</h3>
+          <p>Move your paddle to scoop coins, gems and jackpots. Missing is fine — a bomb costs a life. Three lives, then we bank your reward.</p>
+          <button class="btn gold" id="cgPlay">▶ Play now</button>
+          <span class="cg-tip">Desktop: move the mouse · Mobile: drag your finger</span>
+        </div>
+      </div>
+
+      <div class="cg-ov" id="cgOver" hidden>
+        <div class="cg-card">
+          <div class="cg-over-emoji" id="cgOverEmoji">🏆</div>
+          <h3 id="cgOverTitle">Nice run!</h3>
+          <p id="cgOverMsg">You banked <b class="gold" id="cgOverEarn">0.00</b> $SWEEP into your demo balance.</p>
+          <div class="cg-over-stats">
+            <div><span>Score</span><b id="cgOverScore">0</b></div>
+            <div><span>Best combo</span><b id="cgOverCombo">×1</b></div>
+            <div><span>Balance</span><b class="gold" id="cgOverBal">0.00</b></div>
+          </div>
+          <div class="cg-over-btns">
+            <button class="btn gold" id="cgAgain">↻ Play again</button>
+            <a class="btn ghost" href="game.html">Explore all games →</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -348,5 +409,6 @@
   </div>
 </div>
 <script src="app.js"></script>
+<script src="catch.js"></script>
 </body>
 </html>

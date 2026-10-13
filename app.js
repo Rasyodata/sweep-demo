@@ -205,7 +205,15 @@
     "What is SWEEP?":"SWEEP Nedir?", "Token Sale":"Token Satışı", "Docs":"Dokümanlar",
     "Building the future of web3 economies":"Web3 ekonomilerinin geleceğini inşa ediyoruz",
     "A global Web3 platform where entertainment, financial infrastructure and value creation converge. Built so that the people who generate activity are the ones who share in its value.":"Eğlence, finansal altyapı ve değer üretiminin birleştiği küresel bir Web3 platformu. Aktiviteyi üretenlerin onun değerinden pay aldığı bir yapı.",
-    "Sweep is a global Web3 platform operating without centralized custody or financial guarantees. Access may be restricted in some jurisdictions. Users are responsible for complying with their local laws and regulations. Digital assets are volatile and nothing here is financial advice — only commit funds you can afford to lose.":"Sweep, merkezi saklama veya finansal garanti olmadan çalışan küresel bir Web3 platformudur. Erişim bazı ülkelerde kısıtlı olabilir. Kullanıcılar kendi yerel yasa ve düzenlemelerine uymaktan sorumludur. Dijital varlıklar oynaktır ve buradaki hiçbir şey finansal tavsiye değildir — yalnızca kaybetmeyi göze alabileceğin kadarını yatır."
+    "Sweep is a global Web3 platform operating without centralized custody or financial guarantees. Access may be restricted in some jurisdictions. Users are responsible for complying with their local laws and regulations. Digital assets are volatile and nothing here is financial advice — only commit funds you can afford to lose.":"Sweep, merkezi saklama veya finansal garanti olmadan çalışan küresel bir Web3 platformudur. Erişim bazı ülkelerde kısıtlı olabilir. Kullanıcılar kendi yerel yasa ve düzenlemelerine uymaktan sorumludur. Dijital varlıklar oynaktır ve buradaki hiçbir şey finansal tavsiye değildir — yalnızca kaybetmeyi göze alabileceğin kadarını yatır.",
+    "Play & Earn · Live":"Oyna & Kazan · Canlı", "All games →":"Tüm oyunlar →",
+    "Catch falling $SWEEP, gems and jackpots — dodge the bombs. No sign-up: play right here and every run tops up your demo balance.":"Düşen $SWEEP'leri, mücevherleri ve jackpot'ları yakala — bombalardan kaç. Kayıt yok: tam burada oyna, her tur demo bakiyeni artırır.",
+    "SCORE":"SKOR", "EARNED $SWEEP":"KAZANILAN $SWEEP", "COMBO":"KOMBO", "LIVES":"CAN",
+    "Ready to catch some $SWEEP?":"Biraz $SWEEP yakalamaya hazır mısın?",
+    "Move your paddle to scoop coins, gems and jackpots. Missing is fine — a bomb costs a life. Three lives, then we bank your reward.":"Coin, mücevher ve jackpot'ları toplamak için paleti hareket ettir. Kaçırmak sorun değil — bomba bir cana mal olur. Üç can, sonra ödülünü hesabına geçiririz.",
+    "▶ Play now":"▶ Hemen oyna", "↻ Play again":"↻ Tekrar oyna", "Explore all games →":"Tüm oyunları keşfet →",
+    "Desktop: move the mouse · Mobile: drag your finger":"Masaüstü: fareyi hareket ettir · Mobil: parmağını kaydır",
+    "Score":"Skor", "Best combo":"En iyi kombo", "Balance":"Bakiye"
   };
   var PH = { "Search people, news, pages…":"Kişi, haber, sayfa ara…", "E-Mail Address":"E-posta Adresi", "Password":"Şifre" };
   var HTMLTR = [
