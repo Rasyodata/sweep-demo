@@ -189,7 +189,7 @@
         <div class="cg-card">
           <div class="cg-over-emoji" id="cgOverEmoji">🏆</div>
           <h3 id="cgOverTitle">Nice run!</h3>
-          <p id="cgOverMsg">You banked <b class="gold" id="cgOverEarn">0.00</b> $SWEEP into your demo balance.</p>
+          <p id="cgOverMsg">You won <b class="gold" id="cgOverEarn">0.00</b> $SWEEP — added straight to your balance! 🎉</p>
           <div class="cg-over-stats">
             <div><span>Score</span><b id="cgOverScore">0</b></div>
             <div><span>Best combo</span><b id="cgOverCombo">×1</b></div>
@@ -197,6 +197,64 @@
           </div>
           <div class="cg-over-btns">
             <button class="btn gold" id="cgAgain">↻ Play again</button>
+            <a class="btn ghost" href="game.html">Explore all games →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SWEEP BOUNTY (inline shooter) ======================= -->
+<section class="catch-sec" id="bountyGame">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Arcade · Skill Shot</div>
+        <h2 style="margin-top:10px">SWEEP Bounty</h2>
+        <p class="sub">A crypto shooting gallery — take out the masked scam-bots for a $SWEEP bounty, but hold your fire on the HODLers. Aim, click, earn.</p>
+      </div>
+      <a href="game.html" class="viewall">All games →</a>
+    </div>
+
+    <div class="cg-stage" id="btStage">
+      <canvas id="btCanvas" width="900" height="430" aria-label="SWEEP Bounty mini-game"></canvas>
+
+      <div class="cg-hud">
+        <div class="cg-stat"><span class="cg-k">SCORE</span><span class="cg-v" id="btScore">0</span></div>
+        <div class="cg-stat"><span class="cg-k">EARNED $SWEEP</span><span class="cg-v gold" id="btEarn">0.00</span></div>
+        <div class="cg-stat"><span class="cg-k">COMBO</span><span class="cg-v" id="btCombo">×1</span></div>
+        <div class="cg-stat"><span class="cg-k">AMMO</span><span class="cg-v" id="btAmmo">●●●●●●</span></div>
+        <div class="cg-stat"><span class="cg-k">LIVES</span><span class="cg-v" id="btLives">♥ ♥ ♥</span></div>
+      </div>
+
+      <div class="cg-ov" id="btStart">
+        <div class="cg-card">
+          <div class="cg-legend">
+            <span><b style="color:#ff5470">▲</b> Bot +50</span>
+            <span><b style="color:#ff9f40">◉</b> Bomber +100</span>
+            <span><b style="color:#39d98a">●</b> HODLer · hold fire</span>
+            <span><b style="color:#f5b63d">◎</b> Headshot ×2</span>
+          </div>
+          <h3>Bounty season is open.</h3>
+          <p>Move to aim, click or tap to fire. Hit the masked bots and bombers — but shoot a HODLer and you lose a life. Let a bomber escape and it costs you too. Reload is automatic.</p>
+          <button class="btn gold" id="btPlay">▶ Start the hunt</button>
+          <span class="cg-tip">Desktop: aim with the mouse, click to shoot · Mobile: tap targets</span>
+        </div>
+      </div>
+
+      <div class="cg-ov" id="btOver" hidden>
+        <div class="cg-card">
+          <div class="cg-over-emoji" id="btOverEmoji">🎯</div>
+          <h3 id="btOverTitle">Bounty collected!</h3>
+          <p id="btOverMsg">You won <b class="gold" id="btOverEarn">0.00</b> $SWEEP — added straight to your balance! 🎉</p>
+          <div class="cg-over-stats">
+            <div><span>Score</span><b id="btOverScore">0</b></div>
+            <div><span>Accuracy</span><b id="btOverAcc">0%</b></div>
+            <div><span>Balance</span><b class="gold" id="btOverBal">0.00</b></div>
+          </div>
+          <div class="cg-over-btns">
+            <button class="btn gold" id="btAgain">↻ Hunt again</button>
             <a class="btn ghost" href="game.html">Explore all games →</a>
           </div>
         </div>
@@ -410,5 +468,6 @@
 </div>
 <script src="app.js"></script>
 <script src="catch.js"></script>
+<script src="bounty.js"></script>
 </body>
 </html>

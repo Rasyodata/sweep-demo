@@ -213,7 +213,14 @@
     "Move your paddle to scoop coins, gems and jackpots. Missing is fine — a bomb costs a life. Three lives, then we bank your reward.":"Coin, mücevher ve jackpot'ları toplamak için paleti hareket ettir. Kaçırmak sorun değil — bomba bir cana mal olur. Üç can, sonra ödülünü hesabına geçiririz.",
     "▶ Play now":"▶ Hemen oyna", "↻ Play again":"↻ Tekrar oyna", "Explore all games →":"Tüm oyunları keşfet →",
     "Desktop: move the mouse · Mobile: drag your finger":"Masaüstü: fareyi hareket ettir · Mobil: parmağını kaydır",
-    "Score":"Skor", "Best combo":"En iyi kombo", "Balance":"Bakiye"
+    "Score":"Skor", "Best combo":"En iyi kombo", "Balance":"Bakiye",
+    "Arcade · Skill Shot":"Arcade · Nişan", "SWEEP Bounty":"SWEEP Bounty",
+    "A crypto shooting gallery — take out the masked scam-bots for a $SWEEP bounty, but hold your fire on the HODLers. Aim, click, earn.":"Bir kripto atış galerisi — maskeli dolandırıcı-botları vurup $SWEEP ödülü kazan, ama HODLer'lara ateş etme. Nişan al, tıkla, kazan.",
+    "AMMO":"MERMİ", "Bounty season is open.":"Ödül sezonu açıldı.",
+    "Move to aim, click or tap to fire. Hit the masked bots and bombers — but shoot a HODLer and you lose a life. Let a bomber escape and it costs you too. Reload is automatic.":"Nişan almak için hareket et, ateş için tıkla veya dokun. Maskeli botları ve bombacıları vur — ama bir HODLer'a ateş edersen can kaybedersin. Bombacı kaçarsa da sana pahalıya patlar. Şarjör otomatik dolar.",
+    "▶ Start the hunt":"▶ Ava başla", "↻ Hunt again":"↻ Tekrar avlan",
+    "Desktop: aim with the mouse, click to shoot · Mobile: tap targets":"Masaüstü: fareyle nişan al, ateş için tıkla · Mobil: hedeflere dokun",
+    "Accuracy":"İsabet"
   };
   var PH = { "Search people, news, pages…":"Kişi, haber, sayfa ara…", "E-Mail Address":"E-posta Adresi", "Password":"Şifre" };
   var HTMLTR = [

@@ -30,7 +30,7 @@
     { k: 'coin', r: 16, c: '#f5b63d', c2: '#ffd98a', pts: 10, w: 60, shape: 'coin' },
     { k: 'gem',  r: 15, c: '#39d98a', c2: '#9ff7cf', pts: 50, w: 16, shape: 'gem' },
     { k: 'big',  r: 20, c: '#7c5cff', c2: '#c3b4ff', pts: 150, w: 4, shape: 'star' },
-    { k: 'bomb', r: 16, c: '#ff5470', c2: '#ff9db0', pts: 0, w: 22, shape: 'bomb', bomb: true }
+    { k: 'bomb', r: 16, c: '#ff5470', c2: '#ff9db0', pts: 0, w: 7, shape: 'bomb', bomb: true }
   ];
   var WTOTAL = TYPES.reduce(function (s, t) { return s + t.w; }, 0);
   function pick() { var r = Math.random() * WTOTAL, a = 0; for (var i = 0; i < TYPES.length; i++) { a += TYPES[i].w; if (r <= a) return TYPES[i]; } return TYPES[0]; }
@@ -44,7 +44,7 @@
 
   function reset() {
     items = []; parts = []; floats = []; elapsed = 0; acc = 0; shake = 0;
-    score = 0; earn = 0; combo = 1; bestCombo = 1; streak = 0; lives = 3;
+    score = 0; earn = 0; combo = 1; bestCombo = 1; streak = 0; lives = 5;
     paddle.x = W / 2; hud();
   }
 
@@ -184,11 +184,11 @@
 
   function end() {
     running = false; cancelAnimationFrame(raf);
-    if (earn > 0) addBal(earn);
+    if (earn < 12) earn = 12 + Math.round(score * 0.01 * 100) / 100; // everyone leaves a winner
+    addBal(earn);
     draw();
-    var win = score >= 1500;
-    el.oEmoji.textContent = score >= 4000 ? '🚀' : win ? '🏆' : '💪';
-    el.oTitle.textContent = score >= 4000 ? 'Legendary run!' : win ? 'Great run!' : 'Nice try!';
+    el.oEmoji.textContent = score >= 4000 ? '🚀' : score >= 1500 ? '🏆' : '💰';
+    el.oTitle.textContent = score >= 4000 ? 'Legendary haul — you won!' : score >= 1500 ? 'Big win!' : 'You won!';
     el.oEarn.textContent = fmt(earn);
     el.oScore.textContent = score;
     el.oCombo.textContent = '×' + bestCombo;
