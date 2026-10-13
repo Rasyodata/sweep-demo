@@ -16,7 +16,9 @@
     'Scratch': 'scratch', 'Darts': 'darts', 'Slots': 'slots',
     'Roulette': 'wheel', 'Blackjack': 'card',
     'Keno': 'keno', 'Limbo': 'limbo', 'Baccarat': 'card', 'Double': 'wheel',
-    'Watch & Earn': 'video', 'Mining': 'mining'
+    'Watch & Earn': 'video', 'Mining': 'mining',
+    'Aviator': 'aviator', 'Penalty': 'penalty', 'Sic Bo': 'sicbo',
+    'Bingo': 'keno', 'Balloon': 'balloon', 'Diamonds': 'diamonds'
   };
   var GOLD = '#f5b63d', GREEN = '#39d98a', RED = '#ff5470', VIO = '#7c5cff';
 
@@ -216,7 +218,46 @@
     c.restore(); c.lineCap = 'butt';
   }
 
-  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo, video: video, mining: mining };
+  function aviator(g, c, W, H, tm) {
+    var p = (tm * 0.001 + g.seed) % 1, mult = 1 + p * p * 6, ex = 0, ey = H;
+    c.strokeStyle = RED; c.lineWidth = 2; c.beginPath();
+    for (var i = 0; i <= 20; i++) { var t = i / 20 * p, x = t * W, y = H - 5 - (t * t) * (H - 12); i ? c.lineTo(x, y) : c.moveTo(x, y); ex = x; ey = y; }
+    c.stroke();
+    c.save(); c.translate(ex, ey); c.rotate(-0.7); c.fillStyle = GOLD; c.beginPath(); c.moveTo(0, -4); c.lineTo(9, 0); c.lineTo(0, 4); c.closePath(); c.fill(); c.restore();
+    c.fillStyle = GOLD; c.font = 'bold 11px "JetBrains Mono", monospace'; c.textAlign = 'left'; c.textBaseline = 'top'; c.fillText('x' + mult.toFixed(2), 4, 3);
+  }
+  function penalty(g, c, W, H, tm) {
+    c.strokeStyle = 'rgba(255,255,255,.3)'; c.lineWidth = 2; c.strokeRect(W / 2 - 26, 6, 52, 24);
+    c.strokeStyle = 'rgba(255,255,255,.12)'; c.lineWidth = 1;
+    for (var i = 1; i < 4; i++) { c.beginPath(); c.moveTo(W / 2 - 26 + i * 13, 6); c.lineTo(W / 2 - 26 + i * 13, 30); c.stroke(); }
+    c.beginPath(); c.moveTo(W / 2 - 26, 15); c.lineTo(W / 2 + 26, 15); c.stroke();
+    var p = (tm * 0.0014 + g.seed) % 1, bx = W / 2 + Math.sin(g.seed * 5) * 20 * (1 - p), by = H - 5 - p * (H - 22);
+    c.fillStyle = '#eef1f6'; c.beginPath(); c.arc(bx, by, 5, 0, 7); c.fill(); c.fillStyle = '#16181c'; c.beginPath(); c.arc(bx, by, 1.8, 0, 7); c.fill();
+  }
+  function sicbo(g, c, W, H, tm) {
+    for (var d = 0; d < 3; d++) {
+      var s = 18, x = W / 2 - 31 + d * 22, y = H / 2 - 9;
+      c.fillStyle = '#eef1f6'; rr(c, x, y, s, s, 3); c.fill();
+      c.fillStyle = '#16181c'; c.font = 'bold 11px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle';
+      c.fillText(1 + Math.floor(tm / 560 + g.seed * 3 + d * 2) % 6, x + s / 2, y + s / 2);
+    }
+  }
+  function balloon(g, c, W, H, tm) {
+    var p = (tm * 0.0013 + g.seed) % 1, r = 5 + p * 15;
+    c.strokeStyle = 'rgba(255,255,255,.35)'; c.lineWidth = 1; c.beginPath(); c.moveTo(W / 2, H / 2 - 2 + r); c.lineTo(W / 2, H - 4); c.stroke();
+    c.fillStyle = RED; c.beginPath(); c.arc(W / 2, H / 2 - 2, r, 0, 7); c.fill();
+    c.fillStyle = 'rgba(255,255,255,.4)'; c.beginPath(); c.arc(W / 2 - r * 0.3, H / 2 - 2 - r * 0.3, r * 0.3, 0, 7); c.fill();
+    c.fillStyle = GOLD; c.font = 'bold 10px "JetBrains Mono", monospace'; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText('x' + (1 + p * 5).toFixed(1), W / 2, H - 5);
+  }
+  function diamonds(g, c, W, H, tm) {
+    var cols = [GREEN, VIO, GOLD, RED, GREEN];
+    for (var i = 0; i < 5; i++) {
+      var x = W / 2 - 36 + i * 18, sc = 0.55 + 0.45 * (Math.sin(tm * 0.004 + g.seed + i) * 0.5 + 0.5), r = 8 * sc;
+      c.fillStyle = cols[i]; c.beginPath(); c.moveTo(x, H / 2 - r); c.lineTo(x + r * 0.7, H / 2); c.lineTo(x, H / 2 + r); c.lineTo(x - r * 0.7, H / 2); c.closePath(); c.fill();
+    }
+  }
+
+  var FN = { chart: chart, plinko: plinko, grid: grid, dice: dice, wheel: wheel, race: race, flip: flip, card: card, stack: stack, arc: arc, rocket: rocket, pulse: pulse, ticket: ticket, scratch: scratch, darts: darts, slots: slots, keno: keno, limbo: limbo, video: video, mining: mining, aviator: aviator, penalty: penalty, sicbo: sicbo, balloon: balloon, diamonds: diamonds };
 
   function render(g, tm) {
     var c = g.ctx, W = g.W, H = g.H;
