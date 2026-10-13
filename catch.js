@@ -121,7 +121,7 @@
     if (t.shape === 'coin') {
       ctx.beginPath(); ctx.arc(0, 0, r, 0, 7); ctx.fill(); ctx.stroke();
       ctx.shadowBlur = 0; ctx.fillStyle = 'rgba(0,0,0,.35)';
-      ctx.font = 'bold ' + (r * 1.05) + 'px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.font = 'bold ' + (r * 1.05) + 'px "JetBrains Mono", monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText('S', 0, 1);
     } else if (t.shape === 'gem') {
       ctx.beginPath(); ctx.moveTo(0, -r); ctx.lineTo(r, -r * 0.2); ctx.lineTo(r * 0.6, r); ctx.lineTo(-r * 0.6, r); ctx.lineTo(-r, -r * 0.2); ctx.closePath(); ctx.fill(); ctx.stroke();
@@ -154,7 +154,7 @@
     for (var j = 0; j < parts.length; j++) { var p = parts[j]; ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill(); }
     ctx.globalAlpha = 1;
     // floats
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = 'bold 18px Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = 'bold 18px "JetBrains Mono", monospace';
     for (var f = 0; f < floats.length; f++) { var fl = floats[f]; ctx.globalAlpha = Math.max(0, fl.life); ctx.fillStyle = fl.c; ctx.fillText(fl.txt, fl.x, fl.y); }
     ctx.globalAlpha = 1;
     // paddle

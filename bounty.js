@@ -172,7 +172,7 @@
     // marker above head (not clipped)
     if (t.reveal > 0.6) {
       ctx.globalAlpha = (t.reveal - 0.6) / 0.4;
-      ctx.fillStyle = markC; ctx.font = 'bold 13px Inter, sans-serif'; ctx.textAlign = 'center';
+      ctx.fillStyle = markC; ctx.font = 'bold 13px "JetBrains Mono", monospace'; ctx.textAlign = 'center';
       ctx.fillText(mark, cx, topY - 4);
       ctx.globalAlpha = 1;
     }
@@ -206,18 +206,18 @@
     // REC + LIVE + timestamp
     ctx.textBaseline = 'middle';
     var recOn = reduce ? true : (((last / 600) | 0) % 2 === 0);
-    ctx.textAlign = 'left'; ctx.font = 'bold 12px "DM Mono", monospace';
+    ctx.textAlign = 'left'; ctx.font = 'bold 12px "JetBrains Mono", monospace';
     if (recOn) { ctx.fillStyle = '#ff5470'; ctx.beginPath(); ctx.arc(26, H - 46, 5, 0, 7); ctx.fill(); }
     ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fillText('REC', 36, H - 46);
-    ctx.fillStyle = 'rgba(255,255,255,.6)'; ctx.font = '11px "DM Mono", monospace';
+    ctx.fillStyle = 'rgba(255,255,255,.6)'; ctx.font = '11px "JetBrains Mono", monospace';
     ctx.fillText('CAM 07 · SWEEP-BOUNTY', 66, H - 46);
     // live badge
     ctx.fillStyle = '#39d98a'; ctx.beginPath(); ctx.arc(26, H - 26, 4, 0, 7); ctx.fill();
-    ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.font = 'bold 11px "DM Mono", monospace'; ctx.fillText('● LIVE', 34, H - 26);
+    ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.font = 'bold 11px "JetBrains Mono", monospace'; ctx.fillText('● LIVE', 34, H - 26);
     // timestamp (real clock)
     var d = new Date();
     var ts = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + '  ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
-    ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.font = '12px "DM Mono", monospace';
+    ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(255,255,255,.8)'; ctx.font = '12px "JetBrains Mono", monospace';
     ctx.fillText(ts, W - 26, H - 26);
   }
 
@@ -247,7 +247,7 @@
     for (var j = 0; j < parts.length; j++) { var p = parts[j]; ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill(); }
     ctx.globalAlpha = 1;
     // floats
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = 'bold 17px Inter, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.font = 'bold 17px "JetBrains Mono", monospace';
     for (var f = 0; f < floats.length; f++) { var fl = floats[f]; ctx.globalAlpha = Math.max(0, fl.life); ctx.fillStyle = fl.c; ctx.fillText(fl.txt, fl.x, fl.y); }
     ctx.globalAlpha = 1;
     drawCrosshair();
