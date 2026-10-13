@@ -37,9 +37,52 @@
   }
   function stake(){ var b = getBet(); if(b <= 0){ toast('Enter a valid bet amount.', 'error'); return 0; } if(b > bal){ toast('Insufficient balance.', 'error'); return 0; } setBal(bal - b); return b; }
   function settle(payout, bet, mult){
-    if(payout > 0){ setBal(bal + payout); toast('Win! +' + fmt(payout) + ' SWEEP (' + (mult!=null?mult.toFixed(2)+'×':'') + ')', 'success'); }
-    else { toast('You lost ' + fmt(bet) + ' SWEEP. Try again!', 'error'); }
+    if(payout > 0) setBal(bal + payout);
+    showResult(payout > 0, payout, bet, mult);
   }
+
+  // ---------- Center result modal (engaging) ----------
+  var WIN_T = ["You won! 🎉","Winner winner!","Nice hit!","Cha-ching! 💰","Big win!","Let's go! 🚀"];
+  var LOSE_T = ["So close!","Almost had it!","Not this time","Shake it off 💪","Unlucky!"];
+  var WIN_TIP = ["Ride the streak — go again!","You're on fire 🔥","Quit while ahead… or double it?","The table loves you right now."];
+  var LOSE_TIP = ["Your luck is about to turn.","Fortune favors the bold — one more?","Comebacks start with one more round.","Big wins hide behind near-misses."];
+  function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+  var resTimer = null;
+  function closeResult(){ var ov=document.getElementById('resultModal'); if(ov){ ov.classList.remove('show'); } if(resTimer){ clearTimeout(resTimer); resTimer=null; } }
+  function showResult(win, payout, bet, mult){
+    var ov = document.getElementById('resultModal');
+    if(!ov){ ov = document.createElement('div'); ov.id = 'resultModal'; ov.className = 'result-ov'; document.body.appendChild(ov); }
+    var icon = win ? (mult>=5 ? '🤑' : '🎉') : '😮';
+    var amt = win ? ('+' + fmt(payout) + ' SWEEP' + (mult!=null && isFinite(mult) ? '  ·  ' + mult.toFixed(2) + '×' : '')) : ('−' + fmt(bet) + ' SWEEP');
+    ov.className = 'result-ov ' + (win ? 'win' : 'lose') + ' show';
+    ov.innerHTML = '<div class="result-card">'
+      + (win ? '<canvas class="confetti" width="420" height="260" aria-hidden="true"></canvas>' : '')
+      + '<div class="r-ic">' + icon + '</div>'
+      + '<h3 class="r-title">' + pick(win ? WIN_T : LOSE_T) + '</h3>'
+      + '<div class="r-amt">' + amt + '</div>'
+      + '<p class="r-tip">' + pick(win ? WIN_TIP : LOSE_TIP) + '</p>'
+      + '<div class="r-btns"><button class="r-again" id="rAgain">🔄 Play Again</button>'
+      + '<a class="r-more" href="game.html">More games →</a></div></div>';
+    var card = ov.querySelector('.result-card');
+    var again = ov.querySelector('#rAgain');
+    again.addEventListener('click', function(e){ e.stopPropagation(); closeResult(); var pb = document.getElementById('playBtn'); if(pb && !pb.disabled) pb.click(); else { var hp=document.getElementById('hiHigh'); if(hp) {} } again.blur(); });
+    ov.addEventListener('click', function(e){ if(e.target === ov) closeResult(); });
+    setTimeout(function(){ try{ again.focus(); }catch(e){} }, 30);
+    if(win) confetti(ov.querySelector('.confetti'));
+  }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeResult(); } });
+  function confetti(cv){
+    if(!cv || reduceMotion) return;
+    var ctx = cv.getContext('2d'), W = cv.width, H = cv.height, cols = ['#F5B63D','#35E39B','#7C5CFF','#3B99FC','#FF5C6C','#fff'], ps = [];
+    for(var i=0;i<90;i++){ ps.push({x:W/2+(Math.random()-0.5)*80, y:H*0.4, vx:(Math.random()-0.5)*9, vy:(Math.random()-0.9)*11, c:cols[Math.floor(Math.random()*cols.length)], s:3+Math.random()*4, r:Math.random()*6}); }
+    var t0 = null;
+    function frame(ts){ if(!t0) t0 = ts; var el = ts - t0; ctx.clearRect(0,0,W,H);
+      ps.forEach(function(p){ p.vy += 0.3; p.x += p.vx; p.y += p.vy; p.r += 0.2; ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - el/1600); ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*1.6); ctx.restore(); });
+      if(el < 1600) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // ========================================================= GAMES =========================================================
   var G = {};

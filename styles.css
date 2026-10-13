@@ -550,6 +550,67 @@
   .pill.perp-pill{color:#0b0712 !important; background:linear-gradient(180deg,#b9a3ff,#7C5CFF); font-weight:800; border:none}
   .pill.perp-pill:hover{filter:brightness(1.08); background:linear-gradient(180deg,#b9a3ff,#7C5CFF)}
 
+  /* ===== Center game-result modal ===== */
+  .result-ov{position:fixed; inset:0; z-index:260; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(4,5,9,.55); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity .2s}
+  .result-ov.show{opacity:1; pointer-events:auto}
+  .result-card{position:relative; width:100%; max-width:360px; text-align:center; background:linear-gradient(180deg,#141824,#0d0f18); border:1px solid var(--line-2); border-radius:20px; padding:30px 26px 24px; box-shadow:0 30px 80px rgba(0,0,0,.6); transform:scale(.9); transition:transform .25s cubic-bezier(.2,.9,.3,1.25)}
+  .result-ov.show .result-card{transform:scale(1)}
+  .result-ov.win .result-card{border-color:color-mix(in srgb,var(--up) 45%,transparent); box-shadow:0 0 0 1px color-mix(in srgb,var(--up) 22%,transparent), 0 30px 80px rgba(0,0,0,.6)}
+  .result-ov.lose .result-card{border-color:color-mix(in srgb,var(--down) 40%,transparent)}
+  .confetti{position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0}
+  .result-card > *{position:relative; z-index:1}
+  .r-ic{font-size:52px; line-height:1; margin-bottom:6px}
+  .r-title{font-size:23px; margin:0 0 10px}
+  .r-amt{font-family:var(--mono); font-weight:800; font-size:24px; font-variant-numeric:tabular-nums}
+  .result-ov.win .r-amt{color:var(--up)} .result-ov.lose .r-amt{color:var(--down)}
+  .r-tip{color:var(--muted); font-size:13.5px; margin:10px 0 20px}
+  .r-btns{display:flex; flex-direction:column; gap:10px}
+  .r-again{background:linear-gradient(180deg,#2fe36a,#1bc455); color:#05260f; border:none; border-radius:12px; padding:14px; font-family:var(--sans); font-weight:800; font-size:15px; cursor:pointer}
+  .r-again:hover{filter:brightness(1.07)}
+  .r-more{color:var(--muted); font-size:13px; font-weight:700; text-decoration:none; padding:6px}
+  .r-more:hover{color:var(--gold)}
+
+  /* ===== Mobile refinements ===== */
+  @media(max-width:560px){
+    .wrap{padding:0 16px}
+    .top-in{gap:10px; height:60px}
+    .gamenav{top:60px}
+    .logo img{height:19px}
+    .btn-signup{padding:8px 15px; font-size:13.5px}
+    .langbtn{padding:7px 9px}
+    /* game page */
+    .gamepage{padding:18px 16px 50px}
+    .game-top{flex-wrap:wrap; gap:10px}
+    .gbtn-back{order:1}
+    .bal-pill{order:2; margin-left:auto}
+    .game-top h1{order:3; width:100%; font-size:21px; margin-top:2px}
+    .betbar{flex-direction:column; align-items:stretch; gap:12px}
+    .bb-amt{min-width:0}
+    .bb-play{width:100%; min-width:0}
+    /* airdrop */
+    .air-head{gap:16px}
+    .air-xp{width:100%} .air-xp .xpcard{flex:1}
+    .air-right{position:static}
+    .bg-title{font-size:40px}
+    /* perp */
+    .perp-banner{padding:24px 20px}
+    .perp-stats b{font-size:14px}
+    /* dice/sport/market controls wrap cleanly */
+    .dice-stats{gap:16px}
+    .mk-pick,.sp-odds{flex-wrap:wrap}
+    .sp-match{font-size:17px; gap:12px}
+    /* hero */
+    .hero{padding:0 16px}
+    .hud .quote{min-width:0; padding:12px}
+    .vsound{top:auto; bottom:58px}
+    /* lobby a touch tighter */
+    .lobby{grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px}
+  }
+  @media(max-width:390px){
+    .gamenav{font-size:12px}
+    .lobby{grid-template-columns:1fr 1fr}
+  }
+
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important; scroll-behavior:auto !important}
     .gamenav{overflow-x:auto} .gamenav .track{width:max-content}
