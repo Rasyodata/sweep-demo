@@ -1,5 +1,14 @@
 (function(){
   "use strict";
+  // ---- Favicon (Sweep) ----
+  (function(){
+    if(document.querySelector('link[rel="icon"][data-sweep]')) return;
+    function mk(rel, href, attrs){ var l = document.createElement('link'); l.rel = rel; l.href = href; l.setAttribute('data-sweep',''); if(attrs){ for(var k in attrs) l.setAttribute(k, attrs[k]); } document.head.appendChild(l); }
+    mk('icon', 'favicon.ico', {sizes:'48x48'});
+    mk('icon', 'favicon-white.png', {type:'image/png', media:'(prefers-color-scheme: dark)'});
+    mk('icon', 'favicon-dark.png', {type:'image/png', media:'(prefers-color-scheme: light)'});
+    mk('apple-touch-icon', 'favicon-white.png');
+  })();
   // Build the scrolling game nav (duplicated for seamless loop)
   var games = ["Market","Sport","Trade","Sweepstake","Cases","Upgrade","Changer","Click","Boomb","Booster","Plincoin","Flip","Tower","Fighter","Racing","Card","Crash"];
   var hot = {"Crash":1,"Cases":1,"Plincoin":1,"Sweepstake":1};

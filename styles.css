@@ -408,7 +408,7 @@
   .bal-pill #balReset:hover{color:var(--gold); border-color:var(--gold)}
   .game-note{text-align:center; color:var(--faint); font-size:12px; font-family:var(--mono); margin-top:22px}
 
-  .gcard{background:var(--panel); border:1px solid var(--line-2); border-radius:16px; padding:18px; overflow:hidden}
+  .gcard{background:var(--panel); border:1px solid var(--line-2); border-radius:16px; padding:18px; overflow:hidden; position:relative}
   .gcard canvas{display:block; width:100%; height:auto; border-radius:10px; background:#0b0e16}
 
   .betbar{display:flex; gap:14px; align-items:flex-end; margin-top:16px; flex-wrap:wrap}
@@ -424,7 +424,7 @@
   .bb-play:disabled{opacity:.5; cursor:not-allowed}
   .bb-play.alt{background:var(--gold); color:#191406; width:100%; margin-top:10px}
 
-  .crash-mult{text-align:center; font-family:var(--mono); font-weight:800; font-size:clamp(34px,6vw,52px); margin-top:-200px; position:relative; color:#35E39B; pointer-events:none; text-shadow:0 2px 20px rgba(0,0,0,.5)}
+  .crash-mult{position:absolute; top:44%; left:0; right:0; transform:translateY(-50%); z-index:1; text-align:center; font-family:var(--mono); font-weight:800; font-size:clamp(34px,6vw,52px); color:#35E39B; pointer-events:none; text-shadow:0 2px 20px rgba(0,0,0,.5)}
   .plk-mults{display:flex; gap:3px; margin-top:8px}
   .plk-mults span{flex:1; text-align:center; font-family:var(--mono); font-size:11px; font-weight:700; padding:6px 2px; border-radius:6px; background:var(--panel-2); color:var(--muted); transition:.2s}
   .plk-mults span.hit{background:var(--gold); color:#191406; transform:translateY(-3px)}
@@ -599,10 +599,15 @@
     .dice-stats{gap:16px}
     .mk-pick,.sp-odds{flex-wrap:wrap}
     .sp-match{font-size:17px; gap:12px}
-    /* hero */
+    /* hero — stack everything, no absolute overlap */
     .hero{padding:0 16px}
+    .stage{min-height:auto; justify-content:flex-start}
+    .hud{position:static; padding:16px 16px 0}
     .hud .quote{min-width:0; padding:12px}
-    .vsound{top:auto; bottom:58px}
+    .vsound{position:static; margin:12px 0 0 16px; top:auto; right:auto; bottom:auto}
+    .hero-copy{padding:18px 16px 22px}
+    .hero-copy h1{font-size:30px}
+    .hud-stats{position:static}
     /* lobby a touch tighter */
     .lobby{grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px}
   }
